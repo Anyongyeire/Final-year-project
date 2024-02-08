@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../constants/exporter.dart';
 
 class WelcomeScreen extends StatelessWidget {
+  static const routeName = '/welsome-screen-page';
   const WelcomeScreen({super.key});
 
   @override

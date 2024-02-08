@@ -1,11 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:login_app/src/features/authentication/screens/welcome/welcome_screen.dart';
 import './src/features/authentication/screens/splash_screen/splash_screen.dart';
 import './src/utils/theme/theme.dart';
 
 void main() {
   runApp(const MyApp());
+  debugShowCheckedModeBanner:
+  false;
 }
 
 class MyApp extends StatelessWidget {
@@ -18,6 +21,7 @@ class MyApp extends StatelessWidget {
       darkTheme: TAppTheme.darkTheme,
       themeMode: ThemeMode.system,
       home: SplashScreen(),
+      onGenerateRoute: Router.generateRoute,
     );
   }
 }
@@ -73,5 +77,22 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class Router {
+  static Route<dynamic> generateRoute(RouteSettings settings) {
+    switch (settings.name) {
+      case '/welsome-screen-page':
+        return MaterialPageRoute(builder: (_) => WelcomeScreen());
+      default:
+        return MaterialPageRoute(
+          builder: (_) => Scaffold(
+            body: Center(
+              child: Text('No route defined for ${settings.name}'),
+            ),
+          ),
+        );
+    }
   }
 }

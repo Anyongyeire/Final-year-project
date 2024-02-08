@@ -47,7 +47,10 @@ class OnBordingScreen extends StatelessWidget {
             top: 50.0,
             right: 20.0,
             child: TextButton(
-              onPressed: () => obcontroller.skip(),
+              onPressed: () {
+                obcontroller.skip();
+                Navigator.pushNamed(context, '/welsome-screen-page');
+              },
               child: const Text(
                 "Skip",
                 style: TextStyle(color: tPrimaryColor),
