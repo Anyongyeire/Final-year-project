@@ -17,7 +17,7 @@ const tCardBgColor = Color(0xFFF7F6F1);
 const backgroundColor = Color(0xFF200E32);
 
 // loginApp white
-const iWhiteColor = Color(0xFFFFFFFF);
+const tWhiteColor = Color(0xFFFFFFFF);
 
 // red
 const red = Color(0xFFCD0000);

@@ -7,8 +7,6 @@ import './src/utils/theme/theme.dart';
 
 void main() {
   runApp(const MyApp());
-  debugShowCheckedModeBanner:
-  false;
 }
 
 class MyApp extends StatelessWidget {

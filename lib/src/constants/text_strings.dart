@@ -7,6 +7,10 @@ const String tAppTagLine = 'Your Secure Acquisition \n\tOf Leaders!';
 // selectGender
 const selectGender = "What is your gender?";
 
+//* Generic strings
+const tLogIn = "Login";
+const tSignUp = "SignUp";
+
 // On Bording String
 const String tOnBordingTitle1 = "Vote Securely";
 const String tOnBordingTitle2 = "Vote Conveniently";
@@ -17,3 +21,8 @@ const String tOnBordingSubTitle3 = "Know your leaders instantly";
 const String tOnBordingCounter1 = "1/3";
 const String tOnBordingCounter2 = "2/3";
 const String tOnBordingCounter3 = "3/3";
+
+//* Welcome Screen Text
+const String tWelcomeTitle = "Acquire Leaders Democratically";
+const String tWelcomeSubTitle =
+    "Vote effectively, for your leaders; \nTo Empower them for the development of all.";

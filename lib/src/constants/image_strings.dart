@@ -7,3 +7,9 @@ const String tOnBordingImage1 =
 const String tOnBordingImage2 =
     "assets/images/on_bording_images/ballot-box.png";
 const String tOnBordingImage3 = "assets/images/on_bording_images/voting.gif";
+
+//* Welcom Screen Images
+const String tWelcomeScreenImage =
+    "assets/images/welcome_images/welcome_image.gif";
+const String tWelcomeScreenImage1 =
+    "assets/images/welcome_images/welcome_image_1.png";
