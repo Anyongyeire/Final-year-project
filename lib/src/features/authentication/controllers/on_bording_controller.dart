@@ -1,15 +1,11 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:liquid_swipe/PageHelpers/LiquidController.dart';
-import 'package:login_app/droidcon_exporter.dart';
 
 import '../../../constants/colors.dart';
 import '../../../constants/exporter.dart';
 import '../../../constants/image_strings.dart';
 import '../models/model_on_bording.dart';
 import '../screens/on_bording/on_bording_page_widget.dart';
-import '../screens/welcome/welcome_screen.dart';
-import '../screens/on_bording/on_bording_screen.dart';
 
 class OnBordingController extends GetxController {
   final controller = LiquidController();

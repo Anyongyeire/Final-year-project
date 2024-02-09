@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
+import 'package:login_app/src/features/authentication/screens/splash_screen/splash_screen.dart';
 import '../../features/authentication/screens/on_bording/on_bording_screen.dart';
+import '../../features/authentication/screens/welcome/welcome_screen.dart';
 // import 'package:login_app/src/features/authentication/screens/welcome/welcome_screen.dart';
 
 class TFadeInAnimationController extends GetxController {
@@ -7,7 +9,7 @@ class TFadeInAnimationController extends GetxController {
 
   RxBool animate = false.obs;
 
-  Future startAnimation() async {
+  Future startSplashAnimation() async {
     await Future.delayed(const Duration(milliseconds: 500));
 
     animate.value = true;
@@ -17,8 +19,15 @@ class TFadeInAnimationController extends GetxController {
 
     await Future.delayed(const Duration(milliseconds: 2000));
 
-    Get.to(() => OnBordingScreen());
+    // Get.to(() => OnBordingScreen());s
+    Get.offAll(() => OnBordingScreen());
     // Navigator.pushReplacement(context,
     //     MaterialPageRoute(builder: (context) => const WelcomeScreen()));
+  }
+
+  Future startAnimation() async {
+    await Future.delayed(const Duration(milliseconds: 500));
+
+    animate.value = true;
   }
 }

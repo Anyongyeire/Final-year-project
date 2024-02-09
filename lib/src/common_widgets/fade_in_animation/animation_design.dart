@@ -1,10 +1,7 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:login_app/src/common_widgets/fade_in_animation/fade_in_animation_model.dart';
 
-import '../../constants/colors.dart';
 import 'fade_in_animation_controller.dart';
 
 class TFadeInAnimation extends StatelessWidget {
