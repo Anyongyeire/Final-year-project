@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:login_app/src/constants/colors.dart';
 import 'package:login_app/src/constants/image_strings.dart';
 import 'package:login_app/src/constants/sizes.dart';
+import 'package:login_app/src/features/authentication/screens/login/login_screen.dart';
 import '../../../../common_widgets/fade_in_animation/animation_design.dart';
 import '../../../../common_widgets/fade_in_animation/fade_in_animation_controller.dart';
 import '../../../../common_widgets/fade_in_animation/fade_in_animation_model.dart';
@@ -65,7 +66,9 @@ class WelcomeScreen extends StatelessWidget {
                     children: [
                       Expanded(
                         child: OutlinedButton(
-                          onPressed: () {},
+                          onPressed: () => Get.to(
+                            const LoginScreen(),
+                          ),
                           child: Text(tLogIn.toUpperCase()),
                         ),
                       ),

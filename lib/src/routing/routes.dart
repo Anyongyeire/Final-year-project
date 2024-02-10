@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:login_app/src/constants/exporter.dart';
 import 'package:login_app/src/features/authentication/screens/welcome/welcome_screen.dart';

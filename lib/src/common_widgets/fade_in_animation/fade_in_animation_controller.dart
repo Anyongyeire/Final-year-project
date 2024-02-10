@@ -1,7 +1,5 @@
 import 'package:get/get.dart';
-import 'package:login_app/src/features/authentication/screens/splash_screen/splash_screen.dart';
 import '../../features/authentication/screens/on_bording/on_bording_screen.dart';
-import '../../features/authentication/screens/welcome/welcome_screen.dart';
 // import 'package:login_app/src/features/authentication/screens/welcome/welcome_screen.dart';
 
 class TFadeInAnimationController extends GetxController {

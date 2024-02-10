@@ -26,3 +26,13 @@ const String tOnBordingCounter3 = "3/3";
 const String tWelcomeTitle = "Acquire Leaders Democratically";
 const String tWelcomeSubTitle =
     "Vote effectively, for your leaders; \nTo Empower them for the development of all.";
+
+//* -- LoginScreen Text
+const String tLogninTitle = "Welcome Back!";
+const String tLoginSubtitle = "Vote anywhere, anytime and quicker...";
+const String tRememberMe = "Remember Me?";
+const String tAlreadyHaveAnAccount = "Already have an Account?";
+const String tEmail = "E-mail";
+const String tStudentsEmail = "Student\'s email";
+const String tPassword = "Password";
+const String tForgotPassword = "Forgot Password?";
