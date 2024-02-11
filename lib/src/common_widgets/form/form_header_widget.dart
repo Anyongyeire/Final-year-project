@@ -1,33 +1,33 @@
 import 'package:flutter/material.dart';
 
-import '../../../../constants/exporter.dart';
-import '../../../../constants/image_strings.dart';
-
-class LoginHeaderWidget extends StatelessWidget {
-  const LoginHeaderWidget({
+class FormHeaderWidget extends StatelessWidget {
+  const FormHeaderWidget({
+    required this.image,
+    required this.title,
+    required this.subTitle,
     super.key,
-    required this.size,
   });
 
-  final Size size;
+  final String image, title, subTitle;
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Image(
-          image: const AssetImage(
-            tWelcomeScreenImage1,
+          image: AssetImage(
+            image,
           ),
           height: size.height * 0.3,
         ),
         Text(
-          tLogninTitle,
+          title,
           style: Theme.of(context).textTheme.headline5,
         ),
         Text(
-          tLoginSubtitle,
+          subTitle,
           style: Theme.of(context).textTheme.bodyText1,
         ),
       ],

@@ -10,10 +10,10 @@ class TOutlinedButtonTheme {
   static final lightOutlinededButtonTheme = OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
       foregroundColor: tSecondaryColor,
-      side: BorderSide(
+      side: const BorderSide(
         color: tSecondaryColor,
       ),
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         vertical: tButtonHeight,
       ),
     ),

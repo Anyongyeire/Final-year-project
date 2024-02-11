@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:login_app/src/features/authentication/text_fields/email_field.dart';
-
 import '../../../../constants/colors.dart';
 import '../../../../constants/exporter.dart';
 import '../../../../constants/sizes.dart';
@@ -69,7 +66,12 @@ class LoginForm extends StatelessWidget {
               alignment: Alignment.centerRight,
               child: TextButton(
                 onPressed: () {},
-                child: const Text(tForgotPassword),
+                child: const Text(
+                  tForgotPassword,
+                  style: TextStyle(
+                    color: tPrimaryColor,
+                  ),
+                ),
               ),
             ),
             SizedBox(

@@ -31,8 +31,20 @@ const String tWelcomeSubTitle =
 const String tLogninTitle = "Welcome Back!";
 const String tLoginSubtitle = "Vote anywhere, anytime and quicker...";
 const String tRememberMe = "Remember Me?";
-const String tAlreadyHaveAnAccount = "Already have an Account?";
+const String tDontHaveAnAccount = 'Don\'t have an Account?';
 const String tEmail = "E-mail";
-const String tStudentsEmail = "Student\'s email";
+const String tStudentsEmail = "Student's email";
 const String tPassword = "Password";
 const String tForgotPassword = "Forgot Password?";
+
+//* -- SigUp Screen
+
+const String tSignUpTitle = "Get Started!";
+const String tAlreadyHaveAnAccount = "Already have an Account?";
+const String tFullName = "Full Name";
+const String tStdEmail = "Student's Email.";
+const String tStdNo = "Student's No.";
+const String tPhoneNo = "Telephone Number";
+const String tConfirmPassword = "Confirm Password";
+// const String tFullName = "Full Name";
+
