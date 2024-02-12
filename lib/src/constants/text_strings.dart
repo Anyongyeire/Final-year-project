@@ -48,3 +48,18 @@ const String tPhoneNo = "Telephone Number";
 const String tConfirmPassword = "Confirm Password";
 // const String tFullName = "Full Name";
 
+//* Forgot Password Text
+const String tForgetPasswordTitle = "Make Selection!";
+const String tForgetPasswordSubTitle =
+    "Select one of the options given below to reset your password";
+const String tResetViaEmail = "Reset Via E-mail Verification";
+const String tResetViaPhone = "Reset Via Phone Verification";
+
+// --Forgot password via phone - Text
+const String tForgetPhoneSubTitle =
+    "Enter your registered Phone Number to receive OTP";
+
+// --Forgot password via E-mail - Text
+const String tForgetEmailSubTitle =
+    "Enter your registered E-mail to receive OTP";
+const String tNext = "Next";

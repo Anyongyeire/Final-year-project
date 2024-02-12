@@ -13,3 +13,7 @@ const String tWelcomeScreenImage =
     "assets/images/welcome_images/welcome_image.gif";
 const String tWelcomeScreenImage1 =
     "assets/images/welcome_images/welcome_image_1.png";
+
+//* Forgot Password
+const String tForgotPasswordImage =
+    "assets/images/forgot_password_images/forgot-password.png";

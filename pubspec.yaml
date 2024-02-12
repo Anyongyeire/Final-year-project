@@ -71,7 +71,7 @@ flutter:
     - assets/images/splash_images/
     - assets/images/on_bording_images/
     - assets/images/welcome_images/
-    # - assets/images/books1.png
+    - assets/images/forgot_password_images/
     # - assets/images/cloud-computing(1).png
     # - assets/images/cloud-computing.png
     # - assets/images/splash_screen_image_vote.png
