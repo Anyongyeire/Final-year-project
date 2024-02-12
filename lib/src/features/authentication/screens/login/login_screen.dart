@@ -14,8 +14,8 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var mediaQuery = MediaQuery.of(context);
-    var size = mediaQuery.size;
+    // var mediaQuery = MediaQuery.of(context);
+    // var size = mediaQuery.size;
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
