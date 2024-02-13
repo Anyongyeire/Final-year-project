@@ -63,3 +63,9 @@ const String tForgetPhoneSubTitle =
 const String tForgetEmailSubTitle =
     "Enter your registered E-mail to receive OTP";
 const String tNext = "Next";
+
+// -- OTP Screen - Text
+const String tOtpTitle = "CO\nDE";
+const String tOtpSubTitle = "Verification";
+const String tOtpMessage = "Enter the Verification sent at ";
+const String tOtpMail = "support@voting.com";

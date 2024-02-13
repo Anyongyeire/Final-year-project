@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:login_app/src/common_widgets/form/form_header_widget.dart';
 import 'package:login_app/src/constants/colors.dart';
 import 'package:login_app/src/constants/exporter.dart';
 import 'package:login_app/src/constants/image_strings.dart';
 import 'package:login_app/src/constants/sizes.dart';
+
+import '../forgot_password_otp/otp_screen.dart';
 
 class ForgotPasswordPhoneScreen extends StatelessWidget {
   const ForgotPasswordPhoneScreen({super.key});
@@ -47,7 +50,11 @@ class ForgotPasswordPhoneScreen extends StatelessWidget {
                       SizedBox(
                         width: double.infinity,
                         child: ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(
+                              () => const OtpScreen(),
+                            );
+                          },
                           child: const Text(tNext),
                         ),
                       ),
