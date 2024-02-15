@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:login_app/src/features/core/screens/dashboard/widgets/dashboard.dart';
 import '../../../../constants/colors.dart';
 import '../../../../constants/exporter.dart';
 import '../../../../constants/sizes.dart';
@@ -80,7 +82,11 @@ class LoginForm extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(
+                    () => const Dashboard(),
+                  );
+                },
                 child: Text(
                   tLogIn.toUpperCase(),
                 ),

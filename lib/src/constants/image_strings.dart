@@ -17,3 +17,7 @@ const String tWelcomeScreenImage1 =
 //* Forgot Password
 const String tForgotPasswordImage =
     "assets/images/forgot_password_images/forgot-password.png";
+
+//* Dash Board Images
+const String tUserProfileImage = "assets/images/dashboard/user.png";
+const String tBallotBoxImage = "assets/images/dashboard/ballot-box.png";

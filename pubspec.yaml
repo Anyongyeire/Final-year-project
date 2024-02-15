@@ -55,13 +55,13 @@ dev_dependencies:
 flutter_native_splash:
   color: "#f7f6f1"
   color_dark: "#272727"
-  image: assets/images/burger.png
-  image_dark: assets/images/burger.png
+  image: assets/images/tick-vote.jpeg
+  image_dark: assets/images/tick-vote.jpeg
 
 android_12:
-  image: assets/images/burger.png
+  image: assets/images/tick-vote.jpeg
   icon_background_color: "#f7f6f1"
-  image_dark: assets/images/burger.png
+  image_dark: assets/images/tick-vote.jpeg
   icon_background_color_dark: "#272727"
 
 
@@ -73,7 +73,7 @@ flutter:
     - assets/images/on_bording_images/
     - assets/images/welcome_images/
     - assets/images/forgot_password_images/
-    # - assets/images/cloud-computing(1).png
+    - assets/images/dashboard/
     # - assets/images/cloud-computing.png
     # - assets/images/splash_screen_image_vote.png
     # - assets/images/user.png
