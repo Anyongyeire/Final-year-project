@@ -11,6 +11,9 @@ class OnBordingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final obcontroller = OnBordingController();
+    var mediaQuery = MediaQuery.of(context);
+    var brightness = mediaQuery.platformBrightness;
+    final isDarkMode = brightness == Brightness.dark;
 
     return Scaffold(
       body: Stack(
@@ -20,7 +23,10 @@ class OnBordingScreen extends StatelessWidget {
             pages: obcontroller.pages,
             liquidController: obcontroller.controller,
             onPageChangeCallback: obcontroller.OnPageChangeCallback,
-            slideIconWidget: const Icon(Icons.arrow_back_ios),
+            slideIconWidget: Icon(
+              Icons.arrow_back_ios,
+              color: isDarkMode ? tSecondaryColor : tPrimaryColor,
+            ),
             enableSideReveal: true,
           ),
           Positioned(
@@ -28,7 +34,8 @@ class OnBordingScreen extends StatelessWidget {
             child: OutlinedButton(
               onPressed: () => obcontroller.animateToNextSlide(),
               style: ElevatedButton.styleFrom(
-                side: const BorderSide(color: tPrimaryColor),
+                side: BorderSide(
+                    color: isDarkMode ? tSecondaryColor : tPrimaryColor),
                 shape: const CircleBorder(),
                 padding: const EdgeInsets.all(20.0),
                 onPrimary: Colors.white,
@@ -49,7 +56,7 @@ class OnBordingScreen extends StatelessWidget {
             child: TextButton(
               onPressed: () {
                 obcontroller.skip();
-                Navigator.pushNamed(context, '/welsome-screen-page');
+                Navigator.pushNamed(context, '/welcome-screen-page');
               },
               child: const Text(
                 "Skip",

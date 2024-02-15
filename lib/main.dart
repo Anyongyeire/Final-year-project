@@ -84,7 +84,7 @@ class MyHomePage extends StatelessWidget {
 class Router {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case '/welsome-screen-page':
+      case '/welcome-screen-page':
         return MaterialPageRoute(builder: (_) => WelcomeScreen());
       default:
         return MaterialPageRoute(

@@ -35,7 +35,7 @@ class OtpScreen extends StatelessWidget {
             const SizedBox(
               height: 40.0,
             ),
-            Text(
+            const Text(
               tOtpMessage + tOtpMail,
               textAlign: TextAlign.center,
             ),
@@ -63,7 +63,7 @@ class OtpScreen extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {},
-                child: Text(
+                child: const Text(
                   tNext,
                 ),
               ),

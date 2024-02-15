@@ -11,7 +11,7 @@ import '../../../../common_widgets/fade_in_animation/fade_in_animation_model.dar
 import '../../../../constants/exporter.dart';
 
 class WelcomeScreen extends StatelessWidget {
-  static const routeName = '/welsome-screen-page';
+  static const routeName = '/welcome-screen-page';
   const WelcomeScreen({super.key});
 
   @override
