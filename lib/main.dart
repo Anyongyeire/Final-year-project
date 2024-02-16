@@ -6,7 +6,7 @@ import './src/features/authentication/screens/splash_screen/splash_screen.dart';
 import './src/utils/theme/theme.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const MyApp(),);
 }
 
 class MyApp extends StatelessWidget {
@@ -37,12 +37,12 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
       appBar: AppBar(
-        title: Text(".appable/"),
+        title: const Text(".appable/"),
         leading: const Icon(Icons.ondemand_video_outlined),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-        child: Icon(Icons.add_shopping_cart_outlined),
+        child: const Icon(Icons.add_shopping_cart_outlined),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -85,7 +85,7 @@ class Router {
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
       case '/welcome-screen-page':
-        return MaterialPageRoute(builder: (_) => WelcomeScreen());
+        return MaterialPageRoute(builder: (_) => const WelcomeScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

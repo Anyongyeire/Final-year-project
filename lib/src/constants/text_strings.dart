@@ -69,3 +69,22 @@ const String tOtpTitle = "CO\nDE";
 const String tOtpSubTitle = "Verification";
 const String tOtpMessage = "Enter the Verification sent at ";
 const String tOtpMail = "support@voting.com";
+
+// --Profile Screen - Text
+const String tProfilr = "Profile";
+const String tEditProfile = "Edit Profile";
+const String tLogOutDialogHeading = "Thanks for Voting!";
+const String tProfileHeading = "Logout";
+const String tProfileSubHeading = "superAdmin@voting.com";
+
+// --Menu
+const String tMenu5 = "Logout";
+const String tMenu1 = "Settings";
+const String tMenu2 = "Information";
+const String tMenu3 = "Change Password";
+const String tMenu4 = "User Management";
+
+// -- Update profile screen - Text
+const String tDelete = "Delete";
+const String tJoined = "Joined";
+const String tJoinedAt = "01 Jan, 2024";

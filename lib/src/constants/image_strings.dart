@@ -21,3 +21,6 @@ const String tForgotPasswordImage =
 //* Dash Board Images
 const String tUserProfileImage = "assets/images/dashboard/user.png";
 const String tBallotBoxImage = "assets/images/dashboard/ballot-box.png";
+
+//* Profile Images
+const String tProfileImage = "assets/images/profile/hezed.jpg";

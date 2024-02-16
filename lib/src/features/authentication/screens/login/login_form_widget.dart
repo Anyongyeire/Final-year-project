@@ -6,16 +6,25 @@ import '../../../../constants/exporter.dart';
 import '../../../../constants/sizes.dart';
 import '../forgot_password/forgot_password_options/forgot_password_model_bottom_sheet.dart';
 
-class LoginForm extends StatelessWidget {
+class LoginForm extends StatefulWidget {
   const LoginForm({
     super.key,
   });
+
+  @override
+  State<LoginForm> createState() => _LoginFormState();
+}
+
+class _LoginFormState extends State<LoginForm> {
+  final _formKey = GlobalKey<FormState>();
+  final RegExp emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@std\.kyu\.ac\.ug$');
 
   @override
   Widget build(
     BuildContext context,
   ) {
     return Form(
+      key: _formKey,
       child: Container(
         padding: const EdgeInsets.symmetric(vertical: tFormHeight - 10.0),
         child: Column(
@@ -38,6 +47,15 @@ class LoginForm extends StatelessWidget {
                 iconColor: tPrimaryColor,
                 hintStyle: const TextStyle(color: tPrimaryColor),
               ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Please enter your email';
+                }
+                if (!emailRegex.hasMatch(value)) {
+                  return 'Please enter a valid email';
+                }
+                return null;
+              },
             ),
             const SizedBox(
               height: tFormHeight - 10.0,
@@ -61,6 +79,7 @@ class LoginForm extends StatelessWidget {
                 ),
                 suffixIconColor: tPrimaryColor,
               ),
+              obscureText: true,
             ),
             const SizedBox(
               height: tFormHeight - 20.0,
@@ -83,9 +102,16 @@ class LoginForm extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  Get.to(
-                    () => const Dashboard(),
-                  );
+                  if (_formKey.currentState!.validate()) {
+                    // Form is valid, submit data
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Successfully Logged in!'),
+                      ),
+                    );
+                    Get.to(() => const Dashboard());
+                  }
+                  ;
                 },
                 child: Text(
                   tLogIn.toUpperCase(),
