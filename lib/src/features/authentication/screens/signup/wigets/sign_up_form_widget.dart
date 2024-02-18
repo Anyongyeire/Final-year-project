@@ -5,6 +5,7 @@ import 'package:login_app/src/features/authentication/screens/login/login_screen
 import '../../../../../constants/colors.dart';
 import '../../../../../constants/exporter.dart';
 import '../../../../../constants/sizes.dart';
+import '../../../controllers/signup_controller.dart';
 
 class SignUpFormWidget extends StatefulWidget {
   const SignUpFormWidget({
@@ -17,10 +18,8 @@ class SignUpFormWidget extends StatefulWidget {
 
 class _SignUpFormWidgetState extends State<SignUpFormWidget> {
   final _formKey = GlobalKey<FormState>();
+  final controller = Get.put(SignUpController());
   final RegExp emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@std\.kyu\.ac\.ug$');
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController confirmPasswordController =
-      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +31,7 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextFormField(
+              controller: controller.fullName,
               decoration: const InputDecoration(
                 label: Text(tFullName),
                 prefixIcon: Icon(
@@ -44,6 +44,7 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
               height: tFormHeight - 20,
             ),
             TextFormField(
+              controller: controller.email,
               decoration: const InputDecoration(
                 label: Text(tStdEmail),
                 prefixIcon: Icon(
@@ -65,6 +66,7 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
               height: tFormHeight - 20,
             ),
             TextFormField(
+              controller: controller.stdNo,
               decoration: const InputDecoration(
                 label: Text(tStdNo),
                 prefixIcon: Icon(
@@ -77,6 +79,7 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
               height: tFormHeight - 20,
             ),
             TextFormField(
+              controller: controller.phoneNo,
               decoration: const InputDecoration(
                 label: Text(tPhoneNo),
                 prefixIcon: Icon(
@@ -96,7 +99,7 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                   color: tPrimaryColor,
                 ),
               ),
-              controller: passwordController,
+              controller: controller.password,
               obscureText: true,
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -116,13 +119,13 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                   color: tPrimaryColor,
                 ),
               ),
-              controller: confirmPasswordController,
+              controller: controller.confirmPassword,
               obscureText: true,
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please confirm your password';
                 }
-                if (value != passwordController.text) {
+                if (value != controller.password.text) {
                   return 'Passwords do not match';
                 }
                 return null;
@@ -142,6 +145,9 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                         content: Text('Successfully Added!'),
                       ),
                     );
+                    SignUpController.instance.registerUser(
+                        controller.email.text.trim(),
+                        controller.password.text.trim());
                     Get.to(
                       () => const LoginScreen(),
                     );
