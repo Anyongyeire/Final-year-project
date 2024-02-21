@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:get/get.dart';
 import 'package:login_app/droidcon_exporter.dart';
 import 'package:login_app/src/constants/colors.dart';
 import 'package:login_app/src/constants/exporter.dart';
 import 'package:login_app/src/constants/sizes.dart';
+import 'package:login_app/src/features/authentication/controllers/otp_controller.dart';
 
 class OtpScreen extends StatelessWidget {
   const OtpScreen({super.key});
@@ -14,6 +16,8 @@ class OtpScreen extends StatelessWidget {
     // var height = mediaQuery.size.height;
     var brightness = mediaQuery.platformBrightness;
     final isDarkMode = brightness == Brightness.dark;
+    var otpcontroller = Get.put(OTPController());
+    var otp;
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.all(tDefaultSize),
@@ -53,7 +57,9 @@ class OtpScreen extends StatelessWidget {
                   isDarkMode ? Colors.white.withOpacity(0.2) : tPrimaryColor,
               filled: true,
               onSubmit: (code) {
-                print("OTP is => $code");
+                otp = code;
+                OTPController.instance.verifyOTP(otp);
+                otpcontroller;
               },
             ),
             const SizedBox(
@@ -62,7 +68,11 @@ class OtpScreen extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  // RxController:
+                  OTPController.instance.verifyOTP(otp);
+                  otpcontroller;
+                },
                 child: const Text(
                   tNext,
                 ),

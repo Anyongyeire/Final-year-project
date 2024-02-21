@@ -9,7 +9,7 @@ const tPrimaryColor = Color(0xFF32DE84);
 const tSecondaryColor = Color(0xFF000000);
 
 // loginApp secondary color
-const tAccentColor = Color(0xFF000000);
+const tAccentColor = Color.fromARGB(255, 5, 51, 255);
 
 const tCardBgColor = Color(0xFFF7F6F1);
 

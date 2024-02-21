@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:login_app/src/features/authentication/screens/forgot_password/forgot_password_otp/otp_screen.dart';
 import 'package:login_app/src/features/authentication/screens/login/login_screen.dart';
 
 import '../../../../../constants/colors.dart';
@@ -145,11 +146,13 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                         content: Text('Successfully Added!'),
                       ),
                     );
-                    SignUpController.instance.registerUser(
-                        controller.email.text.trim(),
-                        controller.password.text.trim());
+                    // SignUpController.instance.registerUser(
+                    //     controller.email.text.trim(),
+                    //     controller.password.text.trim());
+                    SignUpController.instance
+                        .phoneAuthentication(controller.phoneNo.text.trim());
                     Get.to(
-                      () => const LoginScreen(),
+                      () => const OtpScreen(),
                     );
                   }
                 },

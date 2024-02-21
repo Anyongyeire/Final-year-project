@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -49,6 +43,15 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyAwKEGfgYQXxDsJQSgCq9wSB7dW7HQR0nM',
+    appId: '1:584326546057:web:c342f95453032765157c58',
+    messagingSenderId: '584326546057',
+    projectId: 'flutter-login-app-f20cc',
+    authDomain: 'flutter-login-app-f20cc.firebaseapp.com',
+    storageBucket: 'flutter-login-app-f20cc.appspot.com',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCEiewoxY-QIC9jq84cxnBeTZC9Wdw3NZM',
     appId: '1:584326546057:android:b3c4d75a0975b251157c58',
@@ -64,5 +67,14 @@ class DefaultFirebaseOptions {
     projectId: 'flutter-login-app-f20cc',
     storageBucket: 'flutter-login-app-f20cc.appspot.com',
     iosBundleId: 'com.example.loginApp',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyDyoZAYTHzCGS7I0-hScBhWaArh1SK9HZI',
+    appId: '1:584326546057:ios:3fa7f542d2d9f0ff157c58',
+    messagingSenderId: '584326546057',
+    projectId: 'flutter-login-app-f20cc',
+    storageBucket: 'flutter-login-app-f20cc.appspot.com',
+    iosBundleId: 'com.example.loginApp.RunnerTests',
   );
 }

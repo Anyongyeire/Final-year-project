@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:login_app/src/constants/colors.dart';
 import 'package:login_app/src/constants/exporter.dart';
 import 'package:login_app/src/constants/image_strings.dart';
 import 'package:login_app/src/constants/sizes.dart';
+import 'package:login_app/src/features/core/screens/profile/profile_screen.dart';
 import 'package:login_app/src/repository/authentication_repository/authentication_repository.dart';
 
 class Dashboard extends StatelessWidget {
@@ -43,7 +45,8 @@ class Dashboard extends StatelessWidget {
               ),
               child: IconButton(
                 onPressed: () {
-                  AuthenticationRepository.instance.logout();
+                  // AuthenticationRepository.instance.logout();
+                  Get.to(() => const ProflieScreen());
                 },
                 icon: const Image(
                   image: AssetImage(
