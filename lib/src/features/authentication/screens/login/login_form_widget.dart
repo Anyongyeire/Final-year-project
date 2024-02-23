@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:login_app/src/features/core/screens/dashboard/widgets/dashboard.dart';
@@ -16,6 +17,7 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
+  bool isObscured = true;
   final _formKey = GlobalKey<FormState>();
   final RegExp emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@std\.kyu\.ac\.ug$');
 
@@ -39,8 +41,8 @@ class _LoginFormState extends State<LoginForm> {
               decoration: InputDecoration(
                 prefixIcon: const Icon(Icons.person_outline_outlined),
                 prefixIconColor: tPrimaryColor,
-                labelText: tEmail,
-                hintText: tStudentsEmail,
+                labelText: tStudentsEmail,
+                hintText: tEmail,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(20.0),
                 ),
@@ -71,15 +73,22 @@ class _LoginFormState extends State<LoginForm> {
                 ),
                 iconColor: tPrimaryColor,
                 hintStyle: const TextStyle(color: tPrimaryColor),
-                suffixIcon: const IconButton(
-                  onPressed: null,
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      isObscured = !isObscured;
+                    });
+                  },
                   icon: Icon(
-                    Icons.remove_red_eye_sharp,
+                    // isObscured ? CupertinoIcons.eye : CupertinoIcons.eye_slash,
+                    isObscured ? Icons.visibility : Icons.visibility_off,
+                    semanticLabel:
+                        isObscured ? 'show password' : 'hide password',
                   ),
                 ),
                 suffixIconColor: tPrimaryColor,
               ),
-              obscureText: true,
+              obscureText: !isObscured,
             ),
             const SizedBox(
               height: tFormHeight - 20.0,

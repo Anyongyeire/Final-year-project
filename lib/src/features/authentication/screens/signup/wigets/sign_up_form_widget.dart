@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:login_app/src/features/authentication/models/user_model.dart';
 import 'package:login_app/src/features/authentication/screens/forgot_password/forgot_password_otp/otp_screen.dart';
 import 'package:login_app/src/features/authentication/screens/login/login_screen.dart';
 
@@ -146,14 +147,27 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                         content: Text('Successfully Added!'),
                       ),
                     );
+
+                    /// Email Authentication
                     // SignUpController.instance.registerUser(
                     //     controller.email.text.trim(),
                     //     controller.password.text.trim());
-                    SignUpController.instance
-                        .phoneAuthentication(controller.phoneNo.text.trim());
-                    Get.to(
-                      () => const OtpScreen(),
+
+                    /// Phone authentication
+                    // SignUpController.instance
+                    //     .phoneAuthentication(controller.phoneNo.text.trim());
+                    // Get.to(
+                    //   () => const OtpScreen(),);
+
+                    /// Get user and pass it to controller
+                    final user = UserModel(
+                      fullname: controller.fullName.text.trim(),
+                      email: controller.email.text.trim(),
+                      phoneNo: controller.phoneNo.text.trim(),
+                      stdNo: controller.stdNo.text.trim(),
+                      password: controller.password.text.trim(),
                     );
+                    SignUpController.instance.createUser(user);
                   }
                 },
                 child: Text(

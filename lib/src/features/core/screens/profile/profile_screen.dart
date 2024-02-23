@@ -8,6 +8,7 @@ import 'package:login_app/src/features/core/screens/profile/update_profile_scree
 import 'package:login_app/src/utils/theme/colors.dart';
 
 import '../../../../constants/colors.dart';
+import '../../../../repository/authentication_repository/authentication_repository.dart';
 import 'widgets/profile_menu.dart';
 
 class ProflieScreen extends StatelessWidget {
@@ -146,7 +147,9 @@ class ProflieScreen extends StatelessWidget {
                 isDark: isDark,
                 title: tMenu5,
                 icon: LineAwesomeIcons.alternate_sign_out,
-                onpress: () {},
+                onpress: () {
+                  AuthenticationRepository.instance.logout();
+                },
                 textColor: Colors.red,
                 endIcon: false,
               ),
