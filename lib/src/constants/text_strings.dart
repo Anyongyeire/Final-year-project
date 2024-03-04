@@ -91,3 +91,24 @@ const String tJoinedAt = "01 Jan, 2024";
 
 // --Edit Profile - Text
 const String tSave = "Update";
+
+// -- validation
+const String tEmailCannotBeEmpty = "Email Cannot be empty";
+const String tInavlidEmailFormat = "Invalid Email Format ";
+const String tNoRecordFound = "No Record Found";
+
+// -- SnackBAr
+const String tAlert = "Alert";
+const String tOhSnap = "Oh! Snap ";
+const String tEmailSent = "Hurray!!! Email on its way";
+const String tCongratulations = "Congratulations!";
+const String tEmailLinkToResetPassword = "Email link to reset Password";
+const String tAccountCreateVerifyEmail = "Account Create Verify Email";
+
+/// -- Email verification
+const String tEmailVerificationTitle = "Verification your Email Address";
+const String tEmailVerificationSubTitle =
+    "We have just sent you an email verification linkon your email. Please check and click on that link to verify your email address. \n If not auto redirected after verification, click on the continue button.";
+const String tContinue = "Continue";
+const String tResendEmailLink = "Resend E-mail link";
+const String tBackToLogin = "Back to Login";

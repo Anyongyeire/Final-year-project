@@ -21,7 +21,7 @@ class SignUpFormWidget extends StatefulWidget {
 class _SignUpFormWidgetState extends State<SignUpFormWidget> {
   final _formKey = GlobalKey<FormState>();
   final controller = Get.put(SignUpController());
-  final RegExp emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@std\.kyu\.ac\.ug$');
+  // final RegExp emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@std\.kyu\.ac\.ug$');
 
   @override
   Widget build(BuildContext context) {
@@ -58,9 +58,9 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your email';
                 }
-                if (!emailRegex.hasMatch(value)) {
-                  return 'Please enter a valid email';
-                }
+                // if (!emailRegex.hasMatch(value)) {
+                //   return 'Please enter a valid email';
+                // }
                 return null;
               },
             ),
@@ -164,10 +164,13 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                       fullname: controller.fullName.text.trim(),
                       email: controller.email.text.trim(),
                       phoneNo: controller.phoneNo.text.trim(),
-                      stdNo: controller.stdNo.text.trim(),
+                      // stdNo: controller.stdNo.text.trim(),
                       password: controller.password.text.trim(),
                     );
-                    SignUpController.instance.createUser(user);
+                    // SignUpController.instance
+                    //     .createUser(user); // phonenumber auth
+                    SignUpController.instance.registerUser(
+                        user.email, user.password); // email auth user register
                   }
                 },
                 child: Text(

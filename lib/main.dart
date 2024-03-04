@@ -1,3 +1,4 @@
+// ignore_for_file: deprecated_member_use
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,9 +9,21 @@ import 'package:login_app/src/repository/authentication_repository/authenticatio
 import './src/features/authentication/screens/splash_screen/splash_screen.dart';
 import './src/utils/theme/theme.dart';
 
-void main() {
+// Future<void> main() async {
+//   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+
+//   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+
+//   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
+//       .then((value) => Get.put(AuthenticationRepository()));
+//   runApp(
+//     const MyApp(),
+//   );
+// }
+
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
       .then((value) => Get.put(AuthenticationRepository()));
   runApp(
     const MyApp(),

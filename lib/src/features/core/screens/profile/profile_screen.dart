@@ -1,21 +1,26 @@
+// ignore_for_file: deprecated_member_use, sort_child_properties_last
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:login_app/src/constants/exporter.dart';
 import 'package:login_app/src/constants/image_strings.dart';
 import 'package:login_app/src/constants/sizes.dart';
+import 'package:login_app/src/features/authentication/models/user_model.dart';
 import 'package:login_app/src/features/core/screens/profile/update_profile_screen.dart';
-import 'package:login_app/src/utils/theme/colors.dart';
 
 import '../../../../constants/colors.dart';
 import '../../../../repository/authentication_repository/authentication_repository.dart';
+import '../../controllers/profile_controller.dart';
 import 'widgets/profile_menu.dart';
+import 'widgets/user_management.dart';
 
 class ProflieScreen extends StatelessWidget {
   const ProflieScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(ProfileController());
     var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Scaffold(
       appBar: AppBar(
@@ -88,6 +93,24 @@ class ProflieScreen extends StatelessWidget {
                 tProfileSubHeading,
                 style: Theme.of(context).textTheme.bodyText2,
               ),
+              // FutureBuilder<String?>(
+              //   future: controller.getUserData(),
+              //   builder: (context, snapshot) {
+              //     if (snapshot.connectionState == ConnectionState.done) {
+              //       if (snapshot.hasData && snapshot.data != null) {
+              //         UserModel userData = snapshot.data as UserModel;
+              //         return Text(
+              //           // tProfileSubHeading,
+              //           userData.email ?? 'N/A',
+              //           style: Theme.of(context).textTheme.bodyText2,
+              //         );
+              //       } else {
+              //        return Text (tProfileSubHeading,
+              //           style: Theme.of(context).textTheme.bodyText2,);
+              //       }
+              //     }
+              //   },
+              // ),
               const SizedBox(
                 height: 20.0,
               ),
@@ -141,7 +164,9 @@ class ProflieScreen extends StatelessWidget {
                 isDark: isDark,
                 title: tMenu4,
                 icon: LineAwesomeIcons.info,
-                onpress: () {},
+                onpress: () {
+                  Get.to(() => const UserManagement());
+                },
               ),
               ProfileMenuWidget(
                 isDark: isDark,

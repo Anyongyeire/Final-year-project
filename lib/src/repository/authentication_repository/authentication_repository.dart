@@ -1,7 +1,9 @@
+import 'dart:ffi';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:login_app/droidcon_exporter.dart';
-import 'package:login_app/src/features/authentication/controllers/signup_controller.dart';
+import 'package:login_app/src/features/authentication/screens/mail_verification/mail_verification.dart';
+import 'package:login_app/src/features/authentication/screens/on_bording/on_bording_screen.dart';
 import 'package:login_app/src/features/authentication/screens/welcome/welcome_screen.dart';
 import 'package:login_app/src/features/core/screens/dashboard/widgets/dashboard.dart';
 import 'package:login_app/src/repository/authentication_repository/exception/signup_email_password_failure.dart';
@@ -11,14 +13,41 @@ class AuthenticationRepository extends GetxController {
 
   //variables
   final _auth = FirebaseAuth.instance;
-  late final Rx<User?> firebaseUser;
+  late final Rx<User?> firebaseUser = Rx<User?>(null);
   var verificationId = ''.obs;
+
+  //Getters
+  User? get currentUser => firebaseUser.value;
+
+  String get getUserID => currentUser?.uid ?? "";
+
+  String get getUserEmail => currentUser?.email ?? "";
+
+  // @override
+  // void onReady() {
+  //   _firebaseUser = Rx<User?>(_auth.currentUser);
+  //   _firebaseUser.bindStream(_auth.userChanges());
+  //   FlutterNativeSplash.remove();
+  //   _setInitialScreen(_firebaseUser.value);
+  //   // ever(firebaseUser, _setInitialScreen);
+  // }
 
   @override
   void onReady() {
-    firebaseUser = Rx<User?>(_auth.currentUser);
+    firebaseUser.value = _auth.currentUser;
     firebaseUser.bindStream(_auth.userChanges());
-    ever(firebaseUser, _setInitialScreen);
+    // FlutterNativeSplash.remove();
+    setInitialScreen(firebaseUser.value);
+    // ever(firebaseUser, _setInitialScreen);
+  }
+
+  //setting initial screen load
+  setInitialScreen(User? user) {
+    user == null
+        ? Get.offAll(() => OnBordingScreen())
+        : user.emailVerified
+            ? Get.offAll(() => const Dashboard())
+            : Get.offAll(() => const MailVerification());
   }
 
   Future<void> phoneAuthentication(String phoneNo) async {
@@ -52,12 +81,7 @@ class AuthenticationRepository extends GetxController {
     return credentials.user != null ? true : false;
   }
 
-  _setInitialScreen(User? user) {
-    user == null
-        ? Get.offAll(() => const WelcomeScreen())
-        : Get.offAll(() => const Dashboard());
-  }
-
+  /// [Email_Authentication] - REGISTER
   Future<void> createUserwithEmailAndPassword(
       String email, String password) async {
     try {
@@ -67,21 +91,40 @@ class AuthenticationRepository extends GetxController {
           ? Get.offAll(() => const Dashboard())
           : Get.offAll(() => const WelcomeScreen());
     } on FirebaseAuthException catch (e) {
-      final ex = SignUpWithEmailAndPasswordFailure.code(e.code);
+      final ex = TExceptions.fromCode(e.code);
       print("FIREBASE AUTH EXECPTION - ${ex.message}");
       throw ex;
     } catch (_) {
-      const ex = SignUpWithEmailAndPasswordFailure();
+      const ex = TExceptions();
       print("FIREBASE AUTH EXECPTION - ${ex.message}");
       throw ex;
     }
   }
 
+  /// [Email_Authentication] - LOGIN
   Future<void> logInwithEmailAndPassword(String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
-    } catch (_) {}
+      final result = TExceptions.fromCode(e.code);
+      throw result.message;
+    } catch (_) {
+      const result = TExceptions();
+      throw result.message;
+    }
+  }
+
+  /// [Email_Verification] - VERIFICATION
+  Future<void> sendEmailVerification() async {
+    try {
+      await _auth.currentUser?.sendEmailVerification();
+    } on FirebaseAuthException catch (e) {
+      final ex = TExceptions.fromCode(e.code);
+      throw ex.message;
+    } catch (_) {
+      const ex = TExceptions();
+      throw ex.message;
+    }
   }
 
   Future<void> logout() async => await _auth.signOut();

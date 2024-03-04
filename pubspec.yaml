@@ -61,6 +61,8 @@ flutter_native_splash:
   color_dark: "#272727"
   image: assets/images/tick-vote.jpeg
   image_dark: assets/images/tick-vote.jpeg
+  branding: assets/images/kyu_logo.png
+  branding_dark: assets/images/kyu_logo.png
 
 android_12:
   image: assets/images/tick-vote.jpeg
