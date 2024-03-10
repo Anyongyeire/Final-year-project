@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:login_app/src/features/authentication/models/user_model.dart';
-import 'package:login_app/src/features/authentication/screens/forgot_password/forgot_password_otp/otp_screen.dart';
-import 'package:login_app/src/features/authentication/screens/login/login_screen.dart';
 
 import '../../../../../constants/colors.dart';
 import '../../../../../constants/exporter.dart';
@@ -142,11 +140,22 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     // Form is valid, submit data
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Successfully Added!'),
-                      ),
+
+                    /// Get user and pass it to controller
+                    final user = UserModel(
+                      fullname: controller.fullName.text.trim(),
+                      email: controller.email.text.trim(),
+                      phoneNo: controller.phoneNo.text.trim(),
+                      // stdNo: controller.stdNo.text.trim(),
+                      password: controller.password.text.trim(),
                     );
+                    // SignUpController.instance
+                    //     .createUser(); // email auth user register
+                    // ScaffoldMessenger.of(context).showSnackBar(
+                    //   const SnackBar(
+                    //     content: Text('Successfully Added!'),
+                    //   ),
+                    // );
 
                     /// Email Authentication
                     // SignUpController.instance.registerUser(
@@ -159,18 +168,8 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                     // Get.to(
                     //   () => const OtpScreen(),);
 
-                    /// Get user and pass it to controller
-                    final user = UserModel(
-                      fullname: controller.fullName.text.trim(),
-                      email: controller.email.text.trim(),
-                      phoneNo: controller.phoneNo.text.trim(),
-                      // stdNo: controller.stdNo.text.trim(),
-                      password: controller.password.text.trim(),
-                    );
-                    // SignUpController.instance
-                    //     .createUser(user); // phonenumber auth
-                    SignUpController.instance.registerUser(
-                        user.email, user.password); // email auth user register
+                    SignUpController.instance
+                        .createUser(user); // phonenumber auth
                   }
                 },
                 child: Text(
