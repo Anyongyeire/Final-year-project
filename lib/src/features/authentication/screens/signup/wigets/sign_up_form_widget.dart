@@ -17,6 +17,7 @@ class SignUpFormWidget extends StatefulWidget {
 }
 
 class _SignUpFormWidgetState extends State<SignUpFormWidget> {
+  bool isObscured = true;
   final _formKey = GlobalKey<FormState>();
   final controller = Get.put(SignUpController());
   // final RegExp emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@std\.kyu\.ac\.ug$');
@@ -92,15 +93,29 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
               height: tFormHeight - 20,
             ),
             TextFormField(
-              decoration: const InputDecoration(
-                label: Text(tPassword),
-                prefixIcon: Icon(
+              decoration: InputDecoration(
+                label: const Text(tPassword),
+                prefixIcon: const Icon(
                   Icons.fingerprint_sharp,
                   color: tPrimaryColor,
                 ),
+                suffixIcon: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      isObscured = !isObscured;
+                    });
+                  },
+                  icon: Icon(
+                    // isObscured ? CupertinoIcons.eye : CupertinoIcons.eye_slash,
+                    isObscured ? Icons.visibility_off : Icons.visibility,
+                    semanticLabel:
+                        isObscured ? 'show password' : 'hide password',
+                  ),
+                ),
+                suffixIconColor: tPrimaryColor,
               ),
+              obscureText: isObscured,
               controller: controller.password,
-              obscureText: true,
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your password';
@@ -119,8 +134,8 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                   color: tPrimaryColor,
                 ),
               ),
+              obscureText: isObscured,
               controller: controller.confirmPassword,
-              obscureText: true,
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please confirm your password';
@@ -149,15 +164,15 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                       // stdNo: controller.stdNo.text.trim(),
                       password: controller.password.text.trim(),
                     );
-                    // SignUpController.instance
-                    //     .createUser(); // email auth user register
-                    // ScaffoldMessenger.of(context).showSnackBar(
-                    //   const SnackBar(
-                    //     content: Text('Successfully Added!'),
-                    //   ),
-                    // );
+                    SignUpController.instance
+                        .createUser(); // email auth user register
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text('Successfully Added!'),
+                      ),
+                    );
 
-                    /// Email Authentication
+                    // Email Authentication
                     // SignUpController.instance.registerUser(
                     //     controller.email.text.trim(),
                     //     controller.password.text.trim());
@@ -168,8 +183,8 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                     // Get.to(
                     //   () => const OtpScreen(),);
 
-                    SignUpController.instance
-                        .createUser(user); // phonenumber auth
+                    // SignUpController.instance
+                    //     .createUser(user); // phonenumber auth
                   }
                 },
                 child: Text(

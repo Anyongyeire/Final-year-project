@@ -1,5 +1,4 @@
 // ignore_for_file: deprecated_member_use
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -25,6 +24,21 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
       .then((value) => Get.put(AuthenticationRepository()));
+
+  //Handle Incoming Links
+  // FirebaseDynamicLinks.instance.onLink(
+  //   onSuccess: (PendingDynamicLinkData? dynamicLink) async {
+  //     final Uri? deepLink = dynamicLink.link;
+  //     if (deepLink != null) {
+  //       // Handle the deep link, e.g sign in the user
+  //       print('Handling dynamic link: $dynamicLink');
+  //     }
+  //     onError:
+  //     (OnLinkErrorException e) async {
+  //       print('Error handling dynamic link: ${e.message}');
+  //     };
+  //   },
+  // );
   runApp(
     const MyApp(),
   );

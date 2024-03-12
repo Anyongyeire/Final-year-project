@@ -47,7 +47,7 @@ class UpdateProfileScreen extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(tDefaultSize),
           child: FutureBuilder(
-            future: controller.getUserData(),
+            future: controller.getAllUsersData(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
                 if (snapshot.hasData) {

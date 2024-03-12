@@ -5,7 +5,8 @@ import 'package:login_app/src/constants/exporter.dart';
 import 'package:login_app/src/constants/image_strings.dart';
 import 'package:login_app/src/constants/sizes.dart';
 import 'package:login_app/src/features/core/screens/profile/profile_screen.dart';
-import 'package:login_app/src/repository/authentication_repository/authentication_repository.dart';
+
+import 'main_drawer.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
@@ -20,11 +21,14 @@ class Dashboard extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          leading: Icon(
-            Icons.menu,
+          iconTheme: IconThemeData(
             color: isDarkMode ? tPrimaryColor : tSecondaryColor,
           ),
           backgroundColor: isDarkMode ? tSecondaryColor : tPrimaryColor,
+          // leading: IconButton(
+          //   onPressed: Get.to(() => const MainDrawer()),
+          //   icon: const Icon(Icons.menu),
+          // ),
           title: Text(
             tAppName,
             style: Theme.of(context).textTheme.headline4?.copyWith(
@@ -57,6 +61,7 @@ class Dashboard extends StatelessWidget {
             ),
           ],
         ),
+        drawer: const MainDrawer(),
         body: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.all(tDefaultSize),

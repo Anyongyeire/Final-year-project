@@ -51,6 +51,7 @@ dependencies:
   cloud_firestore: ^4.15.5
   firebase_dynamic_links: ^5.4.16
   logger: ^2.1.0
+  firebase_analytics: ^10.8.9
 
 
 dev_dependencies:

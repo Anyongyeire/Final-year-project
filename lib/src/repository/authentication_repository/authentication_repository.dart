@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:get/get.dart';
@@ -12,7 +14,7 @@ class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
 
   //variables
-  late final Rx<User?> _firebaseUser;
+  late Rx<User?> _firebaseUser;
   final _auth = FirebaseAuth.instance;
   var verificationId = ''.obs;
 
@@ -36,7 +38,8 @@ class AuthenticationRepository extends GetxController {
 
   @override
   void onReady() {
-    _firebaseUser.value = _auth.currentUser;
+    _firebaseUser = Rx<User?>(_auth.currentUser);
+    // _firebaseUser.value = _auth.currentUser;
     _firebaseUser.bindStream(_auth.userChanges());
     // FlutterNativeSplash.remove();
     setInitialScreen(_firebaseUser.value);
@@ -48,7 +51,7 @@ class AuthenticationRepository extends GetxController {
     user == null
         ? Get.offAll(() => SplashScreen())
         : user.emailVerified
-            // :_auth.currentUser.emailVerified
+            // :user
             ? Get.offAll(() => const Dashboard())
             : Get.offAll(() => const MailVerification());
   }
@@ -110,11 +113,11 @@ class AuthenticationRepository extends GetxController {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
       final result = TExceptions.fromCode(e.code);
-      print("FIREBASE AUTH EXECPTION - ${result.message}");
+      print("FIREBASE AUTH EXECPTION - ${result.message},$result");
       throw result.message;
     } catch (_) {
       const result = TExceptions();
-      print("FIREBASE AUTH EXECPTION - ${result.message}");
+      print("FIREBASE AUTH EXECPTION - ${result.message}, $result");
       throw result.message;
     }
   }
@@ -167,7 +170,7 @@ class AuthenticationRepository extends GetxController {
   }) async {
     try {
       PendingDynamicLinkData? dynamicLinkData;
-
+      log(FirebaseDynamicLinks.instance.toString());
       if (fromColdState) {
         dynamicLinkData = await FirebaseDynamicLinks.instance.getInitialLink();
       } else {
@@ -182,16 +185,16 @@ class AuthenticationRepository extends GetxController {
       bool validLink =
           _auth.isSignInWithEmailLink(dynamicLinkData!.link.toString());
       if (validLink) {
-// Get the user's Url from the continueurl
+        // Get the user's Url from the continueurl
         final continueUrl =
             dynamicLinkData.link.queryParameters['continueUrl'] ?? "";
         // var url = FirebaseAuth.instance.currentUser;
-        final email = url.parse(continueUrl).queryParameters['email'] ?? "";
+        final email = Uri.parse(continueUrl).queryParameters['email'] ?? "";
         final UserCredential userCredential = await _auth.signInWithEmailLink(
           email: email,
           emailLink: dynamicLinkData.link.toString(),
         );
-              setInitialScreen(_auth.currentUser);
+        setInitialScreen(_auth.currentUser);
 
         if (userCredential.user != null) {
           Get.snackbar(

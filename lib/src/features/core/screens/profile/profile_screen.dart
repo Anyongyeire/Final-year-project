@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use, sort_child_properties_last
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
@@ -17,6 +18,8 @@ import 'widgets/user_management.dart';
 
 class ProflieScreen extends StatelessWidget {
   const ProflieScreen({super.key});
+
+  // String get _email => FirebaseAuth.instance.currentUser?.email as String;
 
   @override
   Widget build(BuildContext context) {
@@ -91,6 +94,8 @@ class ProflieScreen extends StatelessWidget {
               ),
               Text(
                 tProfileSubHeading,
+                // controller.getUserData(),
+                // temail,
                 style: Theme.of(context).textTheme.bodyText2,
               ),
               // FutureBuilder<String?>(

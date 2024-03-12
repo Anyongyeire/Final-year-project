@@ -91,6 +91,7 @@ const String tJoinedAt = "01 Jan, 2024";
 
 // --Edit Profile - Text
 const String tSave = "Update";
+const String tSuccess = "Success!";
 
 // -- validation
 const String tEmailCannotBeEmpty = "Email Cannot be empty";

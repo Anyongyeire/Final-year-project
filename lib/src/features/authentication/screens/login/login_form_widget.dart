@@ -22,7 +22,11 @@ class _LoginFormState extends State<LoginForm> {
   bool isObscured = true;
   final controller = Get.put(LoginController());
   final _formKey = GlobalKey<FormState>();
-  final RegExp emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@std\.kyu\.ac\.ug$');
+  final RegExp emailRegex =
+      RegExp(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b');
+  // final RegExp emailRegex = RegExp(
+  //     r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
+  // RegExp(r'^[a-zA-Z0-9._%+-]+@std\.kyu\.ac\.ug$');
 
   @override
   Widget build(
@@ -117,24 +121,20 @@ class _LoginFormState extends State<LoginForm> {
               child: ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    //   // Form is valid, submit data
+                    //Form is valid, submit data
 
-                    //   final user = UserModel(
-                    //     fullname: controller.fullName.text.trim(),
-                    //     email: controller.email.text.trim(),
-                    //     phoneNo: controller.phoneNo.text.trim(),
-                    //     // stdNo: controller.stdNo.text.trim(),
-                    //     password: controller.pasword.text.trim(),
-                    //   );
-                    //   LoginController.instance.login();
-                    //   // ScaffoldMessenger.of(context).showSnackBar(
-                    //   //   const SnackBar(
-                    //   //     content: Text('Successfully Logged in!'),
-                    //   //   ),
-                    //   // );
-                    //   // Get.to(() => const Dashboard());
+                    // final user = UserModel(
+                    //   fullname: controller.fullName.text.trim(),
+                    //   email: controller.email.text.trim(),
+                    //   phoneNo: controller.phoneNo.text.trim(),
+                    //   // stdNo: controller.stdNo.text.trim(),
+                    //   password: controller.pasword.text.trim(),
+                    // );
+                    LoginController.instance.login();
+
+                    // Get.to(() => const Dashboard());
                     // };
-                    LoginController.instance.sendSignInLink(context);
+                    //LoginController.instance.sendSignInLink(context);
                   }
                   ;
                 },
