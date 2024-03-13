@@ -27,23 +27,11 @@ class AuthenticationRepository extends GetxController {
 
   get url => getUserEmail;
 
-  // @override
-  // void onReady() {
-  //   _firebaseUser = Rx<User?>(_auth.currentUser);
-  //   _firebaseUser.bindStream(_auth.userChanges());
-  //   FlutterNativeSplash.remove();
-  //   _setInitialScreen(_firebaseUser.value);
-  //   // ever(firebaseUser, _setInitialScreen);
-  // }
-
   @override
   void onReady() {
     _firebaseUser = Rx<User?>(_auth.currentUser);
-    // _firebaseUser.value = _auth.currentUser;
     _firebaseUser.bindStream(_auth.userChanges());
-    // FlutterNativeSplash.remove();
     setInitialScreen(_firebaseUser.value);
-    // ever(firebaseUser, _setInitialScreen);
   }
 
   //setting initial screen load
@@ -51,7 +39,6 @@ class AuthenticationRepository extends GetxController {
     user == null
         ? Get.offAll(() => SplashScreen())
         : user.emailVerified
-            // :user
             ? Get.offAll(() => const Dashboard())
             : Get.offAll(() => const MailVerification());
   }
@@ -98,11 +85,11 @@ class AuthenticationRepository extends GetxController {
           : Get.offAll(() => const WelcomeScreen());
     } on FirebaseAuthException catch (e) {
       final ex = TExceptions.fromCode(e.code);
-      print("FIREBASE AUTH EXECPTION - ${ex.message}");
+      log("FIREBASE AUTH EXECPTION - ${ex.message}");
       throw ex.message;
     } catch (_) {
       const ex = TExceptions();
-      print("FIREBASE AUTH EXECPTION - ${ex.message}");
+      log("FIREBASE AUTH EXECPTION - ${ex.message}");
       throw ex.message;
     }
   }
@@ -113,11 +100,11 @@ class AuthenticationRepository extends GetxController {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
     } on FirebaseAuthException catch (e) {
       final result = TExceptions.fromCode(e.code);
-      print("FIREBASE AUTH EXECPTION - ${result.message},$result");
+      log("FIREBASE AUTH EXECPTION - ${result.message},$result");
       throw result.message;
     } catch (_) {
       const result = TExceptions();
-      print("FIREBASE AUTH EXECPTION - ${result.message}, $result");
+      log("FIREBASE AUTH EXECPTION - ${result.message}, $result");
       throw result.message;
     }
   }
@@ -128,11 +115,11 @@ class AuthenticationRepository extends GetxController {
       await _auth.currentUser?.sendEmailVerification();
     } on FirebaseAuthException catch (e) {
       final ex = TExceptions.fromCode(e.code);
-      print("FIREBASE AUTH EXECPTION - ${ex.message}");
+      log("FIREBASE AUTH EXECPTION - ${ex.message}");
       throw ex.message;
     } catch (_) {
       const ex = TExceptions();
-      print("FIREBASE AUTH EXECPTION - ${ex.message}");
+      log("FIREBASE AUTH EXECPTION - ${ex.message}");
       throw ex.message;
     }
   }
@@ -221,12 +208,3 @@ class AuthenticationRepository extends GetxController {
     }
   }
 }
-
-
-
-// try{  
-
-
-
-
- 

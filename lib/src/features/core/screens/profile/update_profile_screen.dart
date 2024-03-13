@@ -1,5 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
@@ -47,11 +49,14 @@ class UpdateProfileScreen extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.all(tDefaultSize),
           child: FutureBuilder(
-            future: controller.getAllUsersData(),
+            future: controller.getUserData(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
+                UserModel? userData = snapshot.data as UserModel?;
+                log("in connection");
+                log(snapshot.data.toString());
                 if (snapshot.hasData) {
-                  UserModel userData = snapshot.data as UserModel;
+                  // UserModel userData = UserModel.fromSnapshot(snapshot.data);
                   return Column(
                     children: [
                       Stack(
@@ -91,7 +96,7 @@ class UpdateProfileScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             TextFormField(
-                              initialValue: userData.phoneNo,
+                              initialValue: userData!.phoneNo,
                               decoration: const InputDecoration(
                                 label: Text(tPhoneNo),
                                 prefixIcon: Icon(

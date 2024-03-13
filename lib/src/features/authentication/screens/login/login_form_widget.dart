@@ -1,12 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import '../../../../constants/colors.dart';
 import '../../../../constants/exporter.dart';
 import '../../../../constants/sizes.dart';
 import '../../controllers/login_controller.dart';
-import '../../models/user_model.dart';
 import '../forgot_password/forgot_password_options/forgot_password_model_bottom_sheet.dart';
 
 class LoginForm extends StatefulWidget {
@@ -41,10 +38,6 @@ class _LoginFormState extends State<LoginForm> {
           children: [
             // const EmailField(),
             TextFormField(
-              // FilteringTextInputFormatter.allow(
-              //     RegExp(r'^[a-zA-Z0-9._%+-]+@std\.kyu\.ac\.ug$'),
-              //   ),
-
               controller: controller.email,
               decoration: InputDecoration(
                 prefixIcon: const Icon(Icons.person_outline_outlined),
@@ -89,7 +82,6 @@ class _LoginFormState extends State<LoginForm> {
                     });
                   },
                   icon: Icon(
-                    // isObscured ? CupertinoIcons.eye : CupertinoIcons.eye_slash,
                     isObscured ? Icons.visibility_off : Icons.visibility,
                     semanticLabel:
                         isObscured ? 'show password' : 'hide password',
@@ -122,21 +114,8 @@ class _LoginFormState extends State<LoginForm> {
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
                     //Form is valid, submit data
-
-                    // final user = UserModel(
-                    //   fullname: controller.fullName.text.trim(),
-                    //   email: controller.email.text.trim(),
-                    //   phoneNo: controller.phoneNo.text.trim(),
-                    //   // stdNo: controller.stdNo.text.trim(),
-                    //   password: controller.pasword.text.trim(),
-                    // );
                     LoginController.instance.login();
-
-                    // Get.to(() => const Dashboard());
-                    // };
-                    //LoginController.instance.sendSignInLink(context);
                   }
-                  ;
                 },
                 child: Text(
                   tLogIn.toUpperCase(),

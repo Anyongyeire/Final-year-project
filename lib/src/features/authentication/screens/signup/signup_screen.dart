@@ -23,7 +23,7 @@ class SignUpScreen extends StatelessWidget {
               children: [
                 const Center(
                   child: FormHeaderWidget(
-                    image: tWelcomeScreenImage,
+                    image: tWelcomeScreenImage1,
                     title: tSignUp,
                     subTitle: tSignUpTitle,
                   ),

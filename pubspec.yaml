@@ -62,15 +62,15 @@ dev_dependencies:
 flutter_native_splash:
   color: "#f7f6f1"
   color_dark: "#272727"
-  image: assets/images/tick-vote.jpeg
-  image_dark: assets/images/tick-vote.jpeg
+  image: assets/images/welcome_images/welcome_image_1.png
+  image_dark: assets/images/welcome_images/welcome_image_1.png
   branding: assets/images/kyu_logo.png
   branding_dark: assets/images/kyu_logo.png
 
 android_12:
-  image: assets/images/tick-vote.jpeg
+  image: assets/images/welcome_images/welcome_image_1.png
   icon_background_color: "#f7f6f1"
-  image_dark: assets/images/tick-vote.jpeg
+  image_dark: assets/images/welcome_images/welcome_image_1.png
   icon_background_color_dark: "#272727"
 
 

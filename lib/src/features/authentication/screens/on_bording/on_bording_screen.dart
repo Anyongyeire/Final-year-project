@@ -58,9 +58,10 @@ class OnBordingScreen extends StatelessWidget {
                 obcontroller.skip();
                 Navigator.pushNamed(context, '/welcome-screen-page');
               },
-              child: const Text(
+              child: Text(
                 "Skip",
-                style: TextStyle(color: tPrimaryColor),
+                style: TextStyle(
+                    color: isDarkMode ? tPrimaryColor : tSecondaryColor),
               ),
             ),
           ),
@@ -72,7 +73,7 @@ class OnBordingScreen extends StatelessWidget {
                 count: 3,
                 effect: const WormEffect(
                   activeDotColor: Color(0xFF32DE84),
-                  dotColor: Color(0xff272727),
+                  dotColor: Color.fromARGB(255, 226, 226, 226),
                   dotHeight: 5.0,
                 ),
               ),

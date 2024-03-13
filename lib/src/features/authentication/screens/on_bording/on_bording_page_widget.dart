@@ -36,28 +36,28 @@ class OnBordingPageWidget extends StatelessWidget {
                     .title, //style: Colors.(color: isDarkMode ? tSecondaryColor : tPrimaryColor) ,
                 // selectionColor: isDarkMode ? tSecondaryColor : tPrimaryColor,
                 style: Theme.of(context).textTheme.headline3?.copyWith(
-                      color: isDarkMode ? tSecondaryColor : tPrimaryColor,
+                      color: isDarkMode ? tPrimaryColor : tSecondaryColor,
                     ),
               ),
               Text(
                 model.subTitle,
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: isDarkMode ? tSecondaryColor : tPrimaryColor,
+                  color: isDarkMode ? tPrimaryColor : tSecondaryColor,
                 ),
               ),
             ],
           ),
-          Text(
-            model.counterText,
-            // style: TextStyle(
-            //   color: isDarkMode ? tSecondaryColor : tPrimaryColor,
+          // Text(
+          //   model.counterText,
+          //   // style: TextStyle(
+          //   //   color: isDarkMode ? tSecondaryColor : tPrimaryColor,
 
-            // ),
-            style: Theme.of(context).textTheme.headline6?.copyWith(
-                  color: isDarkMode ? tSecondaryColor : tPrimaryColor,
-                ),
-          ),
+          //   // ),
+          //   style: Theme.of(context).textTheme.headline6?.copyWith(
+          //         color: isDarkMode ? tSecondaryColor : tPrimaryColor,
+          //       ),
+          // ),
           const SizedBox(
             height: 50.0,
           ),

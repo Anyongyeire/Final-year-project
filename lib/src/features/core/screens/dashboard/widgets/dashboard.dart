@@ -14,7 +14,6 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
-    var height = mediaQuery.size.height;
     var brightness = mediaQuery.platformBrightness;
     final isDarkMode = brightness == Brightness.dark;
 
@@ -25,10 +24,6 @@ class Dashboard extends StatelessWidget {
             color: isDarkMode ? tPrimaryColor : tSecondaryColor,
           ),
           backgroundColor: isDarkMode ? tSecondaryColor : tPrimaryColor,
-          // leading: IconButton(
-          //   onPressed: Get.to(() => const MainDrawer()),
-          //   icon: const Icon(Icons.menu),
-          // ),
           title: Text(
             tAppName,
             style: Theme.of(context).textTheme.headline4?.copyWith(
@@ -49,7 +44,6 @@ class Dashboard extends StatelessWidget {
               ),
               child: IconButton(
                 onPressed: () {
-                  // AuthenticationRepository.instance.logout();
                   Get.to(() => const ProflieScreen());
                 },
                 icon: const Image(
@@ -64,7 +58,7 @@ class Dashboard extends StatelessWidget {
         drawer: const MainDrawer(),
         body: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(tDefaultSize),
+            padding: const EdgeInsets.all(tDefaultSize),
           ),
         ),
       ),

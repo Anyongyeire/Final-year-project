@@ -8,8 +8,8 @@ const String tAppTagLine = 'Your Secure Acquisition \n\tOf Leaders!';
 const selectGender = "What is your gender?";
 
 //* Generic strings
-const tLogIn = "Login";
-const tSignUp = "SignUp";
+const tLogIn = "LogIn";
+const tSignUp = "Sign Up";
 
 // On Bording String
 const String tOnBordingTitle1 = "Vote Securely";
@@ -72,6 +72,7 @@ const String tOtpMail = "support@voting.com";
 
 // --Profile Screen - Text
 const String tProfile = "Profile";
+const String tBio = "Bio Data";
 const String tEditProfile = "Edit Profile";
 const String tLogOutDialogHeading = "Thanks for Voting!";
 const String tProfileHeading = "User's Information";
@@ -91,6 +92,7 @@ const String tJoinedAt = "01 Jan, 2024";
 
 // --Edit Profile - Text
 const String tSave = "Update";
+const String tEdit = "Edit";
 const String tSuccess = "Success!";
 
 // -- validation

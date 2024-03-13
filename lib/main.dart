@@ -8,37 +8,11 @@ import 'package:login_app/src/repository/authentication_repository/authenticatio
 import './src/features/authentication/screens/splash_screen/splash_screen.dart';
 import './src/utils/theme/theme.dart';
 
-// Future<void> main() async {
-//   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
-
-//   FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
-
-//   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
-//       .then((value) => Get.put(AuthenticationRepository()));
-//   runApp(
-//     const MyApp(),
-//   );
-// }
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform)
       .then((value) => Get.put(AuthenticationRepository()));
 
-  //Handle Incoming Links
-  // FirebaseDynamicLinks.instance.onLink(
-  //   onSuccess: (PendingDynamicLinkData? dynamicLink) async {
-  //     final Uri? deepLink = dynamicLink.link;
-  //     if (deepLink != null) {
-  //       // Handle the deep link, e.g sign in the user
-  //       print('Handling dynamic link: $dynamicLink');
-  //     }
-  //     onError:
-  //     (OnLinkErrorException e) async {
-  //       print('Error handling dynamic link: ${e.message}');
-  //     };
-  //   },
-  // );
   runApp(
     const MyApp(),
   );
