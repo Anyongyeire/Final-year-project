@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:login_app/src/constants/colors.dart';
 import 'package:login_app/src/constants/exporter.dart';
 import 'package:login_app/src/constants/image_strings.dart';
 import 'package:login_app/src/constants/sizes.dart';
 import 'package:login_app/src/features/core/screens/profile/profile_screen.dart';
 
+import '../../categories/category_item.dart';
 import 'main_drawer.dart';
 
 class Dashboard extends StatelessWidget {
@@ -21,13 +23,13 @@ class Dashboard extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           iconTheme: IconThemeData(
-            color: isDarkMode ? tPrimaryColor : tSecondaryColor,
+            color: isDarkMode ? tPrimaryColor : tWhiteColor,
           ),
           backgroundColor: isDarkMode ? tSecondaryColor : tPrimaryColor,
           title: Text(
             tAppName,
             style: Theme.of(context).textTheme.headline4?.copyWith(
-                  color: isDarkMode ? tPrimaryColor : tSecondaryColor,
+                  color: isDarkMode ? tPrimaryColor : tWhiteColor,
                 ),
           ),
           centerTitle: true,
@@ -39,17 +41,21 @@ class Dashboard extends StatelessWidget {
                 top: 7,
               ),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                color: tCardBgColor,
+                borderRadius: BorderRadius.circular(100.0),
+                color: isDarkMode ? tPrimaryColor : tWhiteColor,
               ),
               child: IconButton(
                 onPressed: () {
                   Get.to(() => const ProflieScreen());
                 },
-                icon: const Image(
-                  image: AssetImage(
-                    tUserProfileImage,
-                  ),
+                // icon: const Image(
+                //   image: AssetImage(
+                //     tUserProfileImage,
+                //   ),
+                // ),
+                icon: Icon(
+                  Icons.person,
+                  color: isDarkMode ? tWhiteColor : tPrimaryColor,
                 ),
               ),
             ),
@@ -59,6 +65,37 @@ class Dashboard extends StatelessWidget {
         body: SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.all(tDefaultSize),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // ElevatedButton(
+                //   onPressed: () {
+                //     // Navigate to Guild Presidents Page
+                //   },
+                //   child: const Text('Guild Presidents'),
+                // ),
+
+                const Text(
+                  "Candidate Categories",
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(
+                  height: tDefaultSize - 10,
+                ),
+                CategoryItem("001", "Guild Presidents",
+                    isDarkMode ? tSecondaryColor : tWhiteColor),
+                const SizedBox(
+                  height: tDefaultSize,
+                ),
+                CategoryItem("001", "Guild Representative Councilors",
+                    isDarkMode ? tSecondaryColor : tWhiteColor),
+                // const SizedBox(
+                //   height: tDefaultSize,
+                // ),
+                // CategoryItem("001", " Specicial Interest groups",
+                //     isDarkMode ? tSecondaryColor : tWhiteColor),
+              ],
+            ),
           ),
         ),
       ),

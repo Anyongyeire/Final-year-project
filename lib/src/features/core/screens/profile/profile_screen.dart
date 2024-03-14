@@ -1,6 +1,5 @@
 // ignore_for_file: deprecated_member_use, sort_child_properties_last
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
@@ -65,129 +64,246 @@ class _ProflieScreenState extends State<ProflieScreen> {
               if (snapshot.connectionState == ConnectionState.done) {
                 UserModel? userData = snapshot.data as UserModel?;
                 if (snapshot.hasData) {
-                  return Column(
-                    children: [
-                      Stack(
-                        children: [
-                          SizedBox(
-                            width: 120,
-                            height: 120,
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(150.0),
-                              child: const Image(
-                                image: AssetImage(tProfileImage),
+                  if (userData!.email == '2000809567@std.kyu.ac.ug') {
+                    return Column(
+                      children: [
+                        Stack(
+                          children: [
+                            SizedBox(
+                              width: 120,
+                              height: 120,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(150.0),
+                                child: const Image(
+                                  image: AssetImage(tProfileImage),
+                                ),
                               ),
                             ),
-                          ),
-                          Positioned(
-                            bottom: 0,
-                            right: 0,
-                            child: Container(
-                              width: 35,
-                              height: 35,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(100),
-                                color: isDark
-                                    ? tPrimaryColor
-                                    : Colors.grey.withOpacity(0.1),
+                            Positioned(
+                              bottom: 0,
+                              right: 0,
+                              child: Container(
+                                width: 35,
+                                height: 35,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(100),
+                                  color: isDark
+                                      ? tPrimaryColor
+                                      : Colors.grey.withOpacity(0.1),
+                                ),
+                                child: const Icon(
+                                    LineAwesomeIcons.alternate_pencil,
+                                    color: Colors.black,
+                                    size: 20),
                               ),
-                              child: const Icon(
-                                  LineAwesomeIcons.alternate_pencil,
-                                  color: Colors.black,
-                                  size: 20),
                             ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(
-                        height: 10.0,
-                      ),
-                      Text(
-                        // tProfileHeading,
-                        userData!.fullname,
-                        style: Theme.of(context).textTheme.headline5,
-                      ),
-                      Text(
-                        // ProfileController.instance.getUserData(),
-                        // tProfileSubHeading,
-                        userData.email,
-                        // controller.getUserData(),
-                        // temail,
-                        style: Theme.of(context).textTheme.bodyText2,
-                      ),
-                      const SizedBox(
-                        height: 20.0,
-                      ),
-                      SizedBox(
-                        width: 200.0,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Get.to(() => const UpdateProfileScreen());
-                          },
-                          child: const Text(
-                            tEditProfile,
-                            style: TextStyle(color: tBlackColor),
-                          ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: tPrimaryColor,
-                            side: BorderSide.none,
-                            shape: const StadiumBorder(),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10.0,
+                        ),
+                        Text(
+                          // tProfileHeading,
+                          userData.fullname,
+                          style: Theme.of(context).textTheme.headline5,
+                        ),
+                        Text(
+                          // ProfileController.instance.getUserData(),
+                          // tProfileSubHeading,
+                          userData.email,
+                          // controller.getUserData(),
+                          // temail,
+                          style: Theme.of(context).textTheme.bodyText2,
+                        ),
+                        const SizedBox(
+                          height: 20.0,
+                        ),
+                        SizedBox(
+                          width: 200.0,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Get.to(() => const UpdateProfileScreen());
+                            },
+                            child: const Text(
+                              tEditProfile,
+                              style: TextStyle(color: tBlackColor),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: tPrimaryColor,
+                              side: BorderSide.none,
+                              shape: const StadiumBorder(),
+                            ),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 30.0,
-                      ),
-                      const Divider(),
-                      const SizedBox(
-                        height: 10.0,
-                      ),
+                        const SizedBox(
+                          height: 30.0,
+                        ),
+                        const Divider(),
+                        const SizedBox(
+                          height: 10.0,
+                        ),
 
-                      //Menu
+                        //Menu
 
-                      ProfileMenuWidget(
-                        isDark: isDark,
-                        title: tMenu1,
-                        icon: LineAwesomeIcons.cog,
-                        onpress: () {},
-                      ),
-                      ProfileMenuWidget(
-                        isDark: isDark,
-                        title: tMenu2,
-                        icon: LineAwesomeIcons.info_circle,
-                        onpress: () {
-                          Get.to(() => const UserInformationScreen());
-                        },
-                      ),
-                      ProfileMenuWidget(
-                        isDark: isDark,
-                        title: tMenu3,
-                        icon: LineAwesomeIcons.lock,
-                        onpress: () {
-                          Get.to(() => const UpdateProfileScreen());
-                        },
-                      ),
-                      const Divider(),
-                      ProfileMenuWidget(
-                        isDark: isDark,
-                        title: tMenu4,
-                        icon: LineAwesomeIcons.wrench,
-                        onpress: () {
-                          Get.to(() => const UserManagement());
-                        },
-                      ),
-                      ProfileMenuWidget(
-                        isDark: isDark,
-                        title: tMenu5,
-                        icon: LineAwesomeIcons.alternate_sign_out,
-                        onpress: () {
-                          AuthenticationRepository.instance.logout();
-                        },
-                        textColor: Colors.red,
-                        endIcon: false,
-                      ),
-                    ],
-                  );
+                        ProfileMenuWidget(
+                          isDark: isDark,
+                          title: tMenu1,
+                          icon: LineAwesomeIcons.cog,
+                          onpress: () {},
+                        ),
+                        ProfileMenuWidget(
+                          isDark: isDark,
+                          title: tMenu2,
+                          icon: LineAwesomeIcons.info_circle,
+                          onpress: () {
+                            Get.to(() => const UserInformationScreen());
+                          },
+                        ),
+                        ProfileMenuWidget(
+                          isDark: isDark,
+                          title: tMenu3,
+                          icon: LineAwesomeIcons.lock,
+                          onpress: () {
+                            Get.to(() => const UpdateProfileScreen());
+                          },
+                        ),
+                        const Divider(),
+                        ProfileMenuWidget(
+                          isDark: isDark,
+                          title: tMenu4,
+                          icon: LineAwesomeIcons.wrench,
+                          onpress: () {
+                            Get.to(() => const UserManagement());
+                          },
+                        ),
+                        ProfileMenuWidget(
+                          isDark: isDark,
+                          title: tMenu5,
+                          icon: LineAwesomeIcons.alternate_sign_out,
+                          onpress: () {
+                            AuthenticationRepository.instance.logout();
+                          },
+                          textColor: Colors.red,
+                          endIcon: false,
+                        ),
+                      ],
+                    );
+                  } else {
+                    return Column(
+                      children: [
+                        Stack(
+                          children: [
+                            SizedBox(
+                              width: 120,
+                              height: 120,
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(150.0),
+                                child: const Image(
+                                  image: AssetImage(tProfileImage),
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              bottom: 0,
+                              right: 0,
+                              child: Container(
+                                width: 35,
+                                height: 35,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(100),
+                                  color: isDark
+                                      ? tPrimaryColor
+                                      : Colors.grey.withOpacity(0.1),
+                                ),
+                                child: const Icon(
+                                    LineAwesomeIcons.alternate_pencil,
+                                    color: Colors.black,
+                                    size: 20),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(
+                          height: 10.0,
+                        ),
+                        Text(
+                          // tProfileHeading,
+                          userData.fullname,
+                          style: Theme.of(context).textTheme.headline5,
+                        ),
+                        Text(
+                          // ProfileController.instance.getUserData(),
+                          // tProfileSubHeading,
+                          userData.email,
+                          // controller.getUserData(),
+                          // temail,
+                          style: Theme.of(context).textTheme.bodyText2,
+                        ),
+                        const SizedBox(
+                          height: 20.0,
+                        ),
+                        SizedBox(
+                          width: 200.0,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Get.to(() => const UpdateProfileScreen());
+                            },
+                            child: const Text(
+                              tEditProfile,
+                              style: TextStyle(color: tBlackColor),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: tPrimaryColor,
+                              side: BorderSide.none,
+                              shape: const StadiumBorder(),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 30.0,
+                        ),
+                        const Divider(),
+                        const SizedBox(
+                          height: 10.0,
+                        ),
+
+                        //Menu
+
+                        ProfileMenuWidget(
+                          isDark: isDark,
+                          title: tMenu1,
+                          icon: LineAwesomeIcons.cog,
+                          onpress: () {},
+                        ),
+                        ProfileMenuWidget(
+                          isDark: isDark,
+                          title: tMenu2,
+                          icon: LineAwesomeIcons.info_circle,
+                          onpress: () {
+                            Get.to(() => const UserInformationScreen());
+                          },
+                        ),
+                        ProfileMenuWidget(
+                          isDark: isDark,
+                          title: tMenu3,
+                          icon: LineAwesomeIcons.lock,
+                          onpress: () {
+                            Get.to(() => const UpdateProfileScreen());
+                          },
+                        ),
+                        ProfileMenuWidget(
+                          isDark: isDark,
+                          title: tMenu5,
+                          icon: LineAwesomeIcons.alternate_sign_out,
+                          onpress: () {
+                            AuthenticationRepository.instance.logout();
+                          },
+                          textColor: Colors.red,
+                          endIcon: false,
+                        ),
+                      ],
+                    );
+                  }
                 } else {
                   // Handle case when snapshot has no data
                   return const Center(

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:login_app/src/features/authentication/models/user_model.dart';
 
 import '../../../../../constants/colors.dart';
 import '../../../../../constants/exporter.dart';
@@ -157,13 +156,13 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                     // Form is valid, submit data
 
                     /// Get user and pass it to controller
-                    final user = UserModel(
-                      fullname: controller.fullName.text.trim(),
-                      email: controller.email.text.trim(),
-                      phoneNo: controller.phoneNo.text.trim(),
-                      // stdNo: controller.stdNo.text.trim(),
-                      password: controller.password.text.trim(),
-                    );
+                    // final user = UserModel(
+                    //   fullname: controller.fullName.text.trim(),
+                    //   email: controller.email.text.trim(),
+                    //   phoneNo: controller.phoneNo.text.trim(),
+                    //   // stdNo: controller.stdNo.text.trim(),
+                    //   password: controller.password.text.trim(),
+                    // );
                     SignUpController.instance
                         .createUser(); // email auth user register
                     ScaffoldMessenger.of(context).showSnackBar(
