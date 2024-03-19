@@ -52,7 +52,14 @@ class UpdateProfileScreen extends StatelessWidget {
             future: controller.getUserData(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.done) {
-                UserModel? userData = snapshot.data as UserModel?;
+                UserModel user = snapshot.data as UserModel;
+
+                // controllers
+                final fullName = TextEditingController(text: user.fullname);
+                final email = TextEditingController(text: user.email);
+                final phoneNo = TextEditingController(text: user.phoneNo);
+                final password = TextEditingController(text: user.password);
+
                 log("in connection");
                 log(snapshot.data.toString());
                 if (snapshot.hasData) {
@@ -96,7 +103,7 @@ class UpdateProfileScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             TextFormField(
-                              initialValue: userData!.phoneNo,
+                              controller: phoneNo,
                               decoration: const InputDecoration(
                                 label: Text(tPhoneNo),
                                 prefixIcon: Icon(
@@ -109,7 +116,7 @@ class UpdateProfileScreen extends StatelessWidget {
                               height: tFormHeight - 10,
                             ),
                             TextFormField(
-                              initialValue: userData.password,
+                              controller: password,
                               decoration: const InputDecoration(
                                 label: Text(tPassword),
                                 prefixIcon: Icon(
@@ -124,10 +131,16 @@ class UpdateProfileScreen extends StatelessWidget {
                             SizedBox(
                               width: double.infinity,
                               child: ElevatedButton(
-                                onPressed: () {
-                                  Get.to(
-                                    () => const UpdateProfileScreen(),
-                                  );
+                                onPressed: () async {
+                                  // final userData = UserModel(
+                                  //   fullname: fullName.text.trim(),
+                                  //   email: email.text.trim(),
+                                  //   phoneNo: phoneNo.text.trim(),
+                                  //   password: password.text.trim(),
+                                  // );
+                                  log("message: here");
+                                  log(user.toString());
+                                  await controller.UpdateRecord(user);
                                 },
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: tPrimaryColor,

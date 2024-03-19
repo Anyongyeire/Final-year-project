@@ -11,6 +11,9 @@ class TExceptions implements Exception {
       case 'weak-password':
         return const TExceptions('Please Enter a strong password!');
 
+      case 'invalid-credential':
+        return const TExceptions('Please Enter a valid password!');
+
       case 'invalid-email':
         return const TExceptions('Please Enter a well formatted e-mail!');
 

@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:login_app/src/constants/colors.dart';
 import 'package:login_app/src/constants/exporter.dart';
-import 'package:login_app/src/constants/image_strings.dart';
 import 'package:login_app/src/constants/sizes.dart';
 import 'package:login_app/src/features/core/screens/profile/profile_screen.dart';
 
-import '../../categories/category_item.dart';
+import '../../categories/two_main_categories/candidate_category_item.dart';
 import 'main_drawer.dart';
 
 class Dashboard extends StatelessWidget {

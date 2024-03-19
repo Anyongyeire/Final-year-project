@@ -37,7 +37,7 @@ class AuthenticationRepository extends GetxController {
   //setting initial screen load
   setInitialScreen(User? user) {
     user == null
-        ? Get.offAll(() => SplashScreen())
+        ? Get.offAll(() => const WelcomeScreen())
         : user.emailVerified
             ? Get.offAll(() => const Dashboard())
             : Get.offAll(() => const MailVerification());
