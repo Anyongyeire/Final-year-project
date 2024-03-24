@@ -108,13 +108,10 @@ class _ProflieScreenState extends State<ProflieScreen> {
                           style: Theme.of(context).textTheme.headline5,
                         ),
                         Text(
-                          // ProfileController.instance.getUserData(),
-                          // tProfileSubHeading,
                           userData.email,
-                          // controller.getUserData(),
-                          // temail,
                           style: Theme.of(context).textTheme.bodyText2,
                         ),
+                        const Text("(Admin)"),
                         const SizedBox(
                           height: 20.0,
                         ),

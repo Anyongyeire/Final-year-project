@@ -9,6 +9,7 @@ import 'package:login_app/src/features/core/screens/dashboard/widgets/dashboard.
 import 'package:login_app/src/repository/authentication_repository/exception/signup_email_password_failure.dart';
 
 import '../../features/authentication/screens/splash_screen/splash_screen.dart';
+import '../../features/core/screens/admin/admin_dashboard.dart';
 
 class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
@@ -39,7 +40,9 @@ class AuthenticationRepository extends GetxController {
     user == null
         ? Get.offAll(() => const WelcomeScreen())
         : user.emailVerified
-            ? Get.offAll(() => const Dashboard())
+            ? (getUserEmail == "2000809567@std.kyu.ac.ug"
+                ? Get.offAll(() => const AdminDashboard())
+                : Get.offAll(() => const Dashboard()))
             : Get.offAll(() => const MailVerification());
   }
 

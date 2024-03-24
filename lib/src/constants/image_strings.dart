@@ -1,5 +1,6 @@
 const String tSplashTopIcon = "assets/images/user.png"; //splash top icon
-const String tSplashImage = "assets/images/splash_screen_image_vote.png";
+const String tSplashImage = "assets/images/welcome_images/welcome_image_1.png";
+const String tSplashLogo = "assets/images/kyu_logo.png"; //splash bottom icon
 
 //on BoradingScreen Images
 const String tOnBordingImage1 =

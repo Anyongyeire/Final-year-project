@@ -9,12 +9,12 @@ class TElevatedButtonTheme {
   /* -- Light Theme -- */
   static final lightElevatedButtonTheme = ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      foregroundColor: tWhiteColor,
-      backgroundColor: tSecondaryColor,
-      side: BorderSide(
+      foregroundColor: tSecondaryColor,
+      backgroundColor: tWhiteColor,
+      side: const BorderSide(
         color: tSecondaryColor,
       ),
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         vertical: tButtonHeight,
       ),
     ),
@@ -23,12 +23,12 @@ class TElevatedButtonTheme {
   /* -- Dark Theme -- */
   static final darkElevatedButtonTheme = ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
-      foregroundColor: tSecondaryColor,
-      backgroundColor: tWhiteColor,
-      side: BorderSide(
+      foregroundColor: tWhiteColor,
+      backgroundColor: tSecondaryColor,
+      side: const BorderSide(
         color: tSecondaryColor,
       ),
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         vertical: tButtonHeight,
       ),
     ),

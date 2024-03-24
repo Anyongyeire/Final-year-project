@@ -87,7 +87,9 @@ class SplashScreen extends StatelessWidget {
               //   opacity: splashScreenController.animate.value ? 1 : 0,
               child: const Image(
                 image: AssetImage(tSplashImage),
-                color: tPrimaryColor,
+                width: 450.0,
+                height: 450.0,
+                // color: tPrimaryColor,
               ),
               // child: const Icon(
               //   Icons.how_to_vote_sharp,
@@ -113,6 +115,9 @@ class SplashScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(100),
                   color: tPrimaryColor,
+                ),
+                child: const ClipOval(
+                  child: Image(image: AssetImage(tSplashLogo)),
                 ),
               ),
             ),

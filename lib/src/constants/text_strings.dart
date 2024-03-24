@@ -115,3 +115,17 @@ const String tEmailVerificationSubTitle =
 const String tContinue = "Continue";
 const String tResendEmailLink = "Resend E-mail link";
 const String tBackToLogin = "Back to Login";
+
+// Admin pannel
+const tAddCandidate = "Add Candidate";
+const tUpdateCandidate = "Update Candidate";
+const tDeleteCandidate = "Delete Candidate";
+const String tAddCandidateSubTitle = "Add Nominated Candidate";
+
+// add candidate form fields
+const String tCandidateName = "Candidates' Names";
+const String tCandidateCategory = "Category";
+const String tCandidateSubCategory = "Sub-category";
+const String tCandidatePosition = "Position";
+// const String tUpdateCandidate = "Update Candidate";
+// const String tDeleteCandidate = "Delete Candidate";

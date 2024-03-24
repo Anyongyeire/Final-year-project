@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:login_app/src/repository/authentication_repository/authentication_repository.dart';
-
 import '../../../repository/user_repository/user_repository.dart';
 import '../models/user_model.dart';
 
