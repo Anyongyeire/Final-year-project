@@ -55,13 +55,13 @@ class UpdateProfileScreen extends StatelessWidget {
                 UserModel user = snapshot.data as UserModel;
 
                 // controllers
-                final fullName = TextEditingController(text: user.fullname);
-                final email = TextEditingController(text: user.email);
+                // final fullName = TextEditingController(text: user.fullname);
+                // final email = TextEditingController(text: user.email);
                 final phoneNo = TextEditingController(text: user.phoneNo);
                 final password = TextEditingController(text: user.password);
 
-                log("in connection");
-                log(snapshot.data.toString());
+                // log("in connection");
+                // log(snapshot.data.toString());
                 if (snapshot.hasData) {
                   // UserModel userData = UserModel.fromSnapshot(snapshot.data);
                   return Column(
@@ -103,7 +103,8 @@ class UpdateProfileScreen extends StatelessWidget {
                         child: Column(
                           children: [
                             TextFormField(
-                              controller: phoneNo,
+                              controller:
+                                  TextEditingController(text: user.phoneNo),
                               decoration: const InputDecoration(
                                 label: Text(tPhoneNo),
                                 prefixIcon: Icon(
@@ -116,7 +117,8 @@ class UpdateProfileScreen extends StatelessWidget {
                               height: tFormHeight - 10,
                             ),
                             TextFormField(
-                              controller: password,
+                              controller:
+                                  TextEditingController(text: user.password),
                               decoration: const InputDecoration(
                                 label: Text(tPassword),
                                 prefixIcon: Icon(
@@ -138,8 +140,8 @@ class UpdateProfileScreen extends StatelessWidget {
                                   //   phoneNo: phoneNo.text.trim(),
                                   //   password: password.text.trim(),
                                   // );
-                                  log("message: here");
-                                  log(user.toString());
+                                  // log("message: here");
+                                  // log(user.toString());
                                   await controller.UpdateRecord(user);
                                 },
                                 style: ElevatedButton.styleFrom(
