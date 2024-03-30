@@ -1,7 +1,5 @@
 // ignore_for_file: deprecated_member_use
 
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
@@ -57,8 +55,8 @@ class UpdateProfileScreen extends StatelessWidget {
                 // controllers
                 // final fullName = TextEditingController(text: user.fullname);
                 // final email = TextEditingController(text: user.email);
-                final phoneNo = TextEditingController(text: user.phoneNo);
-                final password = TextEditingController(text: user.password);
+                // final phoneNo = TextEditingController(text: user.phoneNo);
+                // final password = TextEditingController(text: user.password);
 
                 // log("in connection");
                 // log(snapshot.data.toString());

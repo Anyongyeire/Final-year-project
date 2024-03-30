@@ -178,7 +178,41 @@ class _ProflieScreenState extends State<ProflieScreen> {
                           title: tMenu5,
                           icon: LineAwesomeIcons.alternate_sign_out,
                           onpress: () {
-                            AuthenticationRepository.instance.logout();
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: const Text('Logout'),
+                                  content: const Text(
+                                      'Are you sure you want to logout?'),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      child: const Text(
+                                        'Cancel',
+                                        style:
+                                            TextStyle(color: Colors.redAccent),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                    TextButton(
+                                      child: const Text(
+                                        'Yes',
+                                        style: TextStyle(color: tPrimaryColor),
+                                      ),
+                                      onPressed: () {
+                                        AuthenticationRepository.instance
+                                            .logout();
+                                        // if (Navigator.of(context).canPop()) {
+                                        //   Navigator.of(context).pop();
+                                        // }
+                                      },
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
                           },
                           textColor: Colors.red,
                           endIcon: false,
@@ -293,7 +327,41 @@ class _ProflieScreenState extends State<ProflieScreen> {
                           title: tMenu5,
                           icon: LineAwesomeIcons.alternate_sign_out,
                           onpress: () {
-                            AuthenticationRepository.instance.logout();
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return AlertDialog(
+                                  title: const Text('Logout'),
+                                  content: const Text(
+                                      'Are you sure you want to logout?'),
+                                  actions: <Widget>[
+                                    TextButton(
+                                      child: const Text(
+                                        'Cancel',
+                                        style:
+                                            TextStyle(color: Colors.redAccent),
+                                      ),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                    TextButton(
+                                      child: const Text(
+                                        'Yes',
+                                        style: TextStyle(color: tPrimaryColor),
+                                      ),
+                                      onPressed: () {
+                                        AuthenticationRepository.instance
+                                            .logout();
+                                        // if (Navigator.of(context).canPop()) {
+                                        //   Navigator.of(context).pop();
+                                        // }
+                                      },
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
                           },
                           textColor: Colors.red,
                           endIcon: false,

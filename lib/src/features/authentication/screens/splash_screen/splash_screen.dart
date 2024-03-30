@@ -85,11 +85,13 @@ class SplashScreen extends StatelessWidget {
               // child: AnimatedOpacity(
               //   duration: const Duration(milliseconds: 2000),
               //   opacity: splashScreenController.animate.value ? 1 : 0,
-              child: const Image(
-                image: AssetImage(tSplashImage),
-                width: 450.0,
-                height: 450.0,
-                // color: tPrimaryColor,
+              child: const Center(
+                child: Image(
+                  image: AssetImage(tSplashImage),
+                  width: 400.0,
+                  height: 400.0,
+                  // color: tPrimaryColor,
+                ),
               ),
               // child: const Icon(
               //   Icons.how_to_vote_sharp,
