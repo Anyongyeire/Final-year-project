@@ -15,7 +15,7 @@ class AuthenticationRepository extends GetxController {
   static AuthenticationRepository get instance => Get.find();
 
   //variables
-  late Rx<User?> _firebaseUser;
+  late final Rx<User?> _firebaseUser;
   final _auth = FirebaseAuth.instance;
   var verificationId = ''.obs;
 
@@ -24,7 +24,7 @@ class AuthenticationRepository extends GetxController {
 
   String get getUserID => currentUser?.uid ?? "";
 
-  String get getUserEmail => currentUser?.email ?? "";
+  String get getUserEmail => _firebaseUser.value?.email ?? "";
 
   get url => getUserEmail;
 

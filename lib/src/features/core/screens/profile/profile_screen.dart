@@ -27,7 +27,6 @@ class _ProflieScreenState extends State<ProflieScreen> {
   // String get _email => FirebaseAuth.instance.currentUser?.email as String;
   @override
   Widget build(BuildContext context) {
-    // final controller = Get.put(ProfileController());
     final controller = Get.put(ProfileController());
     var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Scaffold(
