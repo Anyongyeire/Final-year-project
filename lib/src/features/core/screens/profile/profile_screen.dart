@@ -228,8 +228,9 @@ class _ProflieScreenState extends State<ProflieScreen> {
                               height: 120,
                               child: ClipRRect(
                                 borderRadius: BorderRadius.circular(150.0),
-                                child: const Image(
-                                  image: AssetImage(tProfileImage),
+                                child: Image(
+                                  image: const AssetImage(tDefaultProfileImage),
+                                  color: isDark ? Colors.white : Colors.black,
                                 ),
                               ),
                             ),

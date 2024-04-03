@@ -53,6 +53,12 @@ dependencies:
   logger: ^2.1.0
   firebase_analytics: ^10.8.9
   syncfusion_flutter_charts: ^25.1.35
+  flutter_launcher_icons: ^0.13.1
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/welcome_images/welcome_image_1.png"
 
 
 dev_dependencies:
@@ -85,7 +91,7 @@ flutter:
     - assets/images/forgot_password_images/
     - assets/images/dashboard/
     - assets/images/profile/
-    # - assets/images/splash_screen_image_vote.png
+    - assets/images/welcome_images/applogo.png
     # - assets/images/user.png
     # - assets/images/tick-vote.jpeg
     # - assets/images/OIP.jpeg

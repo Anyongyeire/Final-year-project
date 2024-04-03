@@ -27,6 +27,7 @@ class EmailField extends ConsumerWidget {
         } else if (!emailV.hasMatch(value)) {
           return "Invalid email";
         }
+        return null;
       },
       restorationId: "email",
     );

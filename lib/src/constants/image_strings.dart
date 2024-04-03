@@ -25,3 +25,4 @@ const String tBallotBoxImage = "assets/images/dashboard/ballot-box.png";
 
 //* Profile Images
 const String tProfileImage = "assets/images/profile/admin_profile_pic.jpg";
+const String tDefaultProfileImage = "assets/images/profile/user.png";
