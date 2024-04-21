@@ -60,6 +60,8 @@ class SignUpController extends GetxController {
         message: e.toString(),
         snackPosition: SnackPosition.BOTTOM,
         duration: const Duration(seconds: 3),
+        backgroundColor: Colors.red.withOpacity(0.3),
+        // colorText: Colors.red,
       ));
     }
   }

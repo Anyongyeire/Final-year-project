@@ -20,10 +20,10 @@ class _LoginFormState extends State<LoginForm> {
   final controller = Get.put(LoginController());
   final _formKey = GlobalKey<FormState>();
   final RegExp emailRegex =
-      RegExp(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b');
-  // final RegExp emailRegex = RegExp(
-  //     r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
-  // RegExp(r'^[a-zA-Z0-9._%+-]+@std\.kyu\.ac\.ug$');
+      // RegExp(r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b');
+      // final RegExp emailRegex = RegExp(
+      //     r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$');
+      RegExp(r'^[a-zA-Z0-9._%+-]+@std\.kyu\.ac\.ug$');
 
   @override
   Widget build(

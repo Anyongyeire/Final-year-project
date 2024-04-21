@@ -19,7 +19,7 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
   bool isObscured = true;
   final _formKey = GlobalKey<FormState>();
   final controller = Get.put(SignUpController());
-  // final RegExp emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@std\.kyu\.ac\.ug$');
+  final RegExp emailRegex = RegExp(r'^[a-zA-Z0-9._%+-]+@std\.kyu\.ac\.ug$');
 
   @override
   Widget build(BuildContext context) {
@@ -56,9 +56,9 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                 if (value == null || value.isEmpty) {
                   return 'Please enter your email';
                 }
-                // if (!emailRegex.hasMatch(value)) {
-                //   return 'Please enter a valid email';
-                // }
+                if (!emailRegex.hasMatch(value)) {
+                  return 'Please enter a valid email';
+                }
                 return null;
               },
             ),
@@ -165,11 +165,6 @@ class _SignUpFormWidgetState extends State<SignUpFormWidget> {
                     // );
                     SignUpController.instance
                         .createUser(); // email auth user register
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Successfully Added!'),
-                      ),
-                    );
 
                     // Email Authentication
                     // SignUpController.instance.registerUser(
