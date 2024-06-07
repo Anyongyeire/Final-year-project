@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       defaultTransition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 500),
-      home: SplashScreen(),
+      home: const SplashScreen(),
       onGenerateRoute: Router.generateRoute,
     );
   }

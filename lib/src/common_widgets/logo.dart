@@ -22,7 +22,7 @@ class AppLogo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.all(Radius.circular(4.0)),
+      borderRadius: const BorderRadius.all(Radius.circular(4.0)),
       clipBehavior: Clip.antiAlias,
       child: Icon(
         Icons.android,

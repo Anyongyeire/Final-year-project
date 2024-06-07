@@ -6,7 +6,7 @@ import 'package:login_app/src/features/authentication/controllers/on_bording_con
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class OnBordingScreen extends StatelessWidget {
-  OnBordingScreen({super.key});
+  const OnBordingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +34,10 @@ class OnBordingScreen extends StatelessWidget {
             child: OutlinedButton(
               onPressed: () => obcontroller.animateToNextSlide(),
               style: ElevatedButton.styleFrom(
-                side: BorderSide(
+                foregroundColor: Colors.white, side: BorderSide(
                     color: isDarkMode ? tSecondaryColor : tPrimaryColor),
                 shape: const CircleBorder(),
                 padding: const EdgeInsets.all(20.0),
-                onPrimary: Colors.white,
               ),
               child: Container(
                 padding: const EdgeInsets.all(20.0),

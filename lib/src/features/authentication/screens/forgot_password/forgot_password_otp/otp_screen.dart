@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 import 'package:login_app/droidcon_exporter.dart';
@@ -17,7 +16,7 @@ class OtpScreen extends StatelessWidget {
     var brightness = mediaQuery.platformBrightness;
     final isDarkMode = brightness == Brightness.dark;
     var otpcontroller = Get.put(OTPController());
-    var otp;
+    String otp;
     return Scaffold(
       body: Container(
         padding: const EdgeInsets.all(tDefaultSize),
@@ -34,7 +33,7 @@ class OtpScreen extends StatelessWidget {
             ),
             Text(
               tOtpSubTitle.toUpperCase(),
-              style: Theme.of(context).textTheme.headline6,
+              style: Theme.of(context).textTheme.titleLarge,
             ),
             const SizedBox(
               height: 40.0,
@@ -70,6 +69,7 @@ class OtpScreen extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   // RxController:
+                  String otp = '';
                   OTPController.instance.verifyOTP(otp);
                   otpcontroller;
                 },

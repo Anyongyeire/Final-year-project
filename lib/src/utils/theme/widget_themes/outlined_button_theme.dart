@@ -23,10 +23,10 @@ class TOutlinedButtonTheme {
   static final darkOutlinedButtonTheme = OutlinedButtonThemeData(
     style: OutlinedButton.styleFrom(
       foregroundColor: tWhiteColor,
-      side: BorderSide(
+      side: const BorderSide(
         color: tWhiteColor,
       ),
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         vertical: tButtonHeight,
       ),
     ),

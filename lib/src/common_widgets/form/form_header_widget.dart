@@ -34,7 +34,7 @@ class FormHeaderWidget extends StatelessWidget {
         ),
         Text(
           title,
-          style: Theme.of(context).textTheme.headline5?.copyWith(
+          style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                 fontWeight: FontWeight.w900,
                 fontSize: 32,
               ),
@@ -42,7 +42,7 @@ class FormHeaderWidget extends StatelessWidget {
         Text(
           subTitle,
           textAlign: textAlign,
-          style: Theme.of(context).textTheme.bodyText1,
+          style: Theme.of(context).textTheme.bodyLarge,
         ),
       ],
     );

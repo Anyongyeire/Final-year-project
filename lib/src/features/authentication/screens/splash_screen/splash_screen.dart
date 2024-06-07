@@ -14,7 +14,7 @@ import '../../../../constants/sizes.dart';
 // import '../../../../constants/image_strings.dart';
 
 class SplashScreen extends StatelessWidget {
-  SplashScreen({super.key});
+  const SplashScreen({super.key});
 
   // @override
   // void initState() {

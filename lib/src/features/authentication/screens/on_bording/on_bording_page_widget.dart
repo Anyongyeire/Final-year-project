@@ -35,7 +35,7 @@ class OnBordingPageWidget extends StatelessWidget {
                 model
                     .title, //style: Colors.(color: isDarkMode ? tSecondaryColor : tPrimaryColor) ,
                 // selectionColor: isDarkMode ? tSecondaryColor : tPrimaryColor,
-                style: Theme.of(context).textTheme.headline3?.copyWith(
+                style: Theme.of(context).textTheme.displaySmall?.copyWith(
                       color: isDarkMode ? tPrimaryColor : tSecondaryColor,
                     ),
               ),

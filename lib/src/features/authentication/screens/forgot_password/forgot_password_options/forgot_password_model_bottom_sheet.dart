@@ -20,9 +20,9 @@ class ForgotPasswordScreen {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(tForgetPasswordTitle,
-                style: Theme.of(context).textTheme.headline3),
+                style: Theme.of(context).textTheme.displaySmall),
             Text(tForgetPasswordSubTitle,
-                style: Theme.of(context).textTheme.bodyText2),
+                style: Theme.of(context).textTheme.bodyMedium),
             const SizedBox(
               height: tDefaultSize,
             ),

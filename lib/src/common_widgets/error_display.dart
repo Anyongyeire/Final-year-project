@@ -1,6 +1,5 @@
 import 'package:login_app/src/common_widgets/app_button/exporter.dart';
 import 'package:login_app/src/common_widgets/logo.dart';
-import 'package:login_app/src/routing/exporter.dart';
 
 import '../../droidcon_exporter.dart';
 import '../constants/exporter.dart';

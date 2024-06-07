@@ -3,7 +3,6 @@ import 'package:login_app/src/constants/exporter.dart';
 import 'package:login_app/src/features/authentication/models/exporter.dart';
 import 'package:login_app/src/features/authentication/text_fields/textfields_riverpod.dart';
 
-import '../../../../droidcon_exporter.dart';
 
 final signUpFormFields = [
   AppFormField(

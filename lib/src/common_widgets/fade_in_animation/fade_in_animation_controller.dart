@@ -18,7 +18,7 @@ class TFadeInAnimationController extends GetxController {
     await Future.delayed(const Duration(milliseconds: 2000));
 
     // Get.to(() => OnBordingScreen());s
-    Get.offAll(() => OnBordingScreen());
+    Get.offAll(() => const OnBordingScreen());
     // Navigator.pushReplacement(context,
     //     MaterialPageRoute(builder: (context) => const WelcomeScreen()));
   }

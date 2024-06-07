@@ -39,7 +39,7 @@ class SignUpScreen extends StatelessWidget {
                         children: [
                           TextSpan(
                             text: tAlreadyHaveAnAccount,
-                            style: Theme.of(context).textTheme.bodyText1,
+                            style: Theme.of(context).textTheme.bodyLarge,
                           ),
                           const TextSpan(
                             text: tLogIn,

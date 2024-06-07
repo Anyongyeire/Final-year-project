@@ -53,12 +53,12 @@ class WelcomeScreen extends StatelessWidget {
                     children: [
                       Text(
                         tWelcomeTitle,
-                        style: Theme.of(context).textTheme.headline3,
+                        style: Theme.of(context).textTheme.displaySmall,
                         textAlign: TextAlign.center,
                       ),
                       Text(
                         tWelcomeSubTitle,
-                        style: Theme.of(context).textTheme.bodyText1,
+                        style: Theme.of(context).textTheme.bodyLarge,
                         textAlign: TextAlign.center,
                       ),
                     ],
